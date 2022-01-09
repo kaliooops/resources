@@ -1,0 +1,49 @@
+html {
+  font-size: calc(16 / 19.2 * 1vw);
+}
+
+@media (min-aspect-ratio: 16/9) {
+  html {
+    font-size: calc(16 / 10.8 * 1vh);
+  }
+}
+
+#container {
+  position: fixed;
+  top: 50%; /* I recommend using 'px' instead of 'rem' if you have something above the notifications that has a fixed height and doesn't scale based on resolution */
+  right: .5rem;
+  width: 23rem;
+}
+
+.notification {
+  display: flex;
+  background-color: #090e23e6;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  margin-bottom: .5rem;
+}
+
+.light-mode {
+  color: #000;
+  background-color: #f5f5f5e6;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-right: 1.25rem;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.title {
+  margin: 0;
+}
+
+.paragraph {
+  margin: 0;
+  text-align: justify;
+}

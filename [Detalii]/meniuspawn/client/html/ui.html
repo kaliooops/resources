@@ -1,0 +1,59 @@
+<head>
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<script src="scripts.js" type="text/javascript"></script>
+	<script src="../../configNui.js" type="text/javascript"></script>
+	<script src="sweetalert2.all.min.js" type="text/javascript"></script>
+	<script src="debounce.min.js" type="text/javascript"></script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+
+<body>
+	<div class="full-screen">
+		<div class="container">
+			<button class="btnClose"><i class="fas fa-times fa-2x"></i></button>
+			<h1 class="title">Panou Informativ</h1>
+			<br/>
+			<br/>
+			<br/>
+			
+			<br/>
+			
+			
+			<div id="wrap">
+				<div class="logo"><img src="logo.png"></div>
+			</div>
+			<div id="home">
+				<h2>Bun venit pe <span>k2 Romania Roleplay</span></h2>
+				<p>Deoarece serverul nostru contine o multime de sisteme inovative cu care probabil nu ai mai avut de-a face..</p>
+				<p>Ne-am gandit sa facem acest panou pentru a intelege cu usurinta fiecare sistem.</p>
+				<button class="btnNext glow-on-hover" style="vertical-align:middle" onclick="openShowJobs()"><span>Mai Departe </span></button>
+			</div>
+			<div id="showJobs">
+				<div id="scrollbox" class="scrollbox">
+					<h5 class="anteturi"><b>Evenimente Temporare</b> </h5>
+					<div class="jobs-list whitelisted-jobs flex"></div>
+					<h5 class="anteturi"><b>Detalii despre Sisteme</b> </h5>
+					<div class="jobs-list unwhitelisted-jobs flex"></div>
+				</div>
+				<p class="scrollToBottom" onclick="scrollToBottom()"><i class="fas fa-arrow-circle-down fa-3x"></i></p>
+			</div>
+			<div id="jobSelection">
+				<div class="jobHeader flex">
+					<img class="jobIcon">
+					<h2 class="jobTitle"></h2>
+				</div>
+				<p class="jobDescription"></p>
+				<h4 class="jobRequirementsTitle"></h4>
+				<p class="jobRequirements"></p>
+				<div class="jobButtons">
+					<button onclick="openShowJobs()">Inapoi</button>
+					<button class="selectJob"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

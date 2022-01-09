@@ -1,0 +1,5 @@
+RegisterNetEvent("getWaterMarkPlayers")
+AddEventHandler("getWaterMarkPlayers",function()
+    local num = GetNumPlayerIndices()
+    TriggerClientEvent('getOnlinePlyWatermark',-1,num)
+end)

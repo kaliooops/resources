@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+.loading-screen{
+  width: 1146px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+.title-info{
+  display: block;
+  text-align: center;
+  height: 96px;
+}
+.title-info > h4 {
+  text-shadow: 1px 1px 1px #000000;
+  font-weight: 300;
+}
+.title-info > h1 {
+  text-shadow: 1px 1px 1px #000000;
+  font-size: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 8px 5px 8px !important;
+}
+.display-ad{
+  display: inline-block;
+  position: relative;
+  left: 0;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1152px), screen and (max-height: 745px) {
+  .loading-screen{
+    width: 882px;
+  }
+  .title-info{
+    height: 74px;
+  }
+  .title-info > h1 {
+    font-size: 38px;
+  }
+  .display-ad{
+  	margin-top: 13px;
+  }
+}
