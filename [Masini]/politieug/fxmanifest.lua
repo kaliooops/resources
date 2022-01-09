@@ -1,0 +1,21 @@
+game "gta5"
+fx_version "bodacious"
+
+
+files
+{
+	"data/**/carcols.meta",
+	"data/**/gtxd.meta",
+	"data/**/handling.meta",
+	"data/**/vehicles.meta",
+	"data/**/vehiclelayouts.meta",
+	"data/**/carvariations.meta",
+
+	
+}
+data_file "GTXD_PARENTING_DATA" "data/**/gtxd.meta"
+data_file "VEHICLE_LAYOUTS_FILE" "data/**/vehiclelayouts.meta"
+data_file "HANDLING_FILE" "data/**/handling.meta"
+data_file "CARCOLS_FILE" "data/**/carcols.meta"
+data_file "VEHICLE_METADATA_FILE" "data/**/vehicles.meta"
+data_file "VEHICLE_VARIATION_FILE" "data/**/carvariations.meta"
