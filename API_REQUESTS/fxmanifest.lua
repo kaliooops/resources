@@ -1,5 +1,5 @@
 
-fx_version "cerulean"
+fx_version "bodacious"
 
 game "gta5"
 dependency "vrp"
@@ -22,7 +22,7 @@ server_scripts {
 
 ui_page "html/index.html"
 -- ui_page "http://cfx-nui-api_requests/html/index.html"
-
+-- ui_page "http://cfx-nui-API_REQUESTS/html/index.html"
 files {
     "html/index.html",
     "html/style.css",
