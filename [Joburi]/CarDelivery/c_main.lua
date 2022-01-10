@@ -193,6 +193,7 @@ function job()
                         while true do 
                            Wait(1000)
                             if GetEntityHealth(PlayerPedId()) <= 120 then
+                                NetworkSetFriendlyFireOption(true)
                                 TriggerEvent("toasty:Notify", {type = "info", title="Car Delivery", message = "Ai pierdut o masina!"})
 
                                 for _, ped in pairs(enemies) do
@@ -227,6 +228,7 @@ function job()
 
 
             if GetVehiclePedIsUsing(PlayerPedId()) == cfg.car_to_steal then
+                NetworkSetFriendlyFireOption(true)
                 TriggerEvent("toasty:Notify", {type = "info", title="Car Dealer", message = "Vino sa-mi aduci masina!"})
                 CreateThread(function()
                     RemoveBlip(cfg.mission_blip)
@@ -241,6 +243,7 @@ function job()
                             if IsControlJustPressed(1, 51) then
                                 local money = math.random(400, 600) * factor * n_enemies
                                 TriggerServerEvent("carDelivery:PayMe", money, tocken)
+                                NetworkSetFriendlyFireOption(true)
                                 TriggerEvent("toasty:Notify", {type = "success", title="Car Delivery", message = "Ai primit " .. money .. "$"})
 
                                 RemoveBlip(cfg.mission_blip)
@@ -263,6 +266,7 @@ function job()
                 end)
                 return
             else
+                NetworkSetFriendlyFireOption(true)
                 TriggerEvent("toasty:Notify", {type = "info", title="Giany Versace", message = "Data viitoare macar incearca..."})
 
                 SetEntityAsMissionEntity(cfg.car_to_steal, true, true)
