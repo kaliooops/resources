@@ -1427,7 +1427,6 @@ vRP.registerMenuBuilder("main", function(add, data)
 			menu["Unban"] = {ch_unban}
 			menu["Verifica jucator"] = {ch_checkplayer}
 			menu["Ban permanent"] = {ch_ban}
-			menu["#Noclip"] = {ch_noclip}
 		end
 		if vRP.isUserMod(user_id) or vRP.isUserModAvansat(user_id) then
 			menu["Coordonate"] = {ch_coords}
@@ -1436,6 +1435,7 @@ vRP.registerMenuBuilder("main", function(add, data)
 			menu["Anunt Admin"] = {ch_ann}
 			menu["Ban temporar"] = {ch_banTemp}
             menu["Spec Player"] = {ch_spec}
+			menu["#Noclip"] = {ch_noclip}
 		end
 		if vRP.isUserHelper(user_id) then
 			menu["TpToPlace"] = {ch_tptoplace}
