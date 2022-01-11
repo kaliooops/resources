@@ -94,11 +94,11 @@ cfg.cloakroom_types = {
     ["Doctor 3"] = emergency_doctor2,
     ["Doctor 4"] = emergency_doctor3
   },
-  ["Puscarias"] = {
-    ["Puscarias Negru"] = puscarias,
-    ["Puscarias Caciula"] = puscarias2,
-    ["Puscarias Alb"] = puscarias3
-  },
+  -- ["Puscarias"] = {
+  --   ["Puscarias Negru"] = puscarias,
+  --   ["Puscarias Caciula"] = puscarias2,
+  --   ["Puscarias Alb"] = puscarias3
+  -- },
   ["AmongUs"] = {
     _config = { permissions = {"copil.cloakroom"} },
     [""] = Us,
@@ -143,25 +143,25 @@ cfg.cloakroom_types = {
     ["Skin 4"] = sri4
   },
 
-  ["Hidr0"] = {
-    _config = { permissions = {"hidr0.cloakroom"} },
-    ["Skin Hidr0"] = hidr0
-  },
+  -- ["Hidr0"] = {
+  --   _config = { permissions = {"hidr0.cloakroom"} },
+  --   ["Skin Hidr0"] = hidr0
+  -- },
 
-  ["Staff Skins"] = {
-    _config = { permissions = {"staff.cloakroom"} },
-    ["Skin Staff Blue"] = staff1,
-    ["Skin Staff Red"] = staff2
-  },
+--   ["Staff Skins"] = {
+--     _config = { permissions = {"staff.cloakroom"} },
+--     ["Skin Staff Blue"] = staff1,
+--     ["Skin Staff Red"] = staff2
+--   },
   
-  ["Curva"] = {
-    _config = { permissions = {"curva.cloakroom"} },
-    ["Curva Lux"] = curva_female1,
-    ["Curva Forta"] = curva_female2,
-	  ["Curva Superb"] = curva_female3,
-    ["Travestitul Popa"] = curva_travest1,
-    ["Travestitul Marin"] = curva_travest2  
-  }
+--   ["Curva"] = {
+--     _config = { permissions = {"curva.cloakroom"} },
+--     ["Curva Lux"] = curva_female1,
+--     ["Curva Forta"] = curva_female2,
+-- 	  ["Curva Superb"] = curva_female3,
+--     ["Travestitul Popa"] = curva_travest1,
+--     ["Travestitul Marin"] = curva_travest2  
+--   }
 }
 
 cfg.cloakrooms = {
