@@ -128,7 +128,6 @@ AddEventHandler("entityCreating", function(handle)
     if GetEntityModel(handle) == -1788665315 then return end --rotweiler
     if GetEntityModel(handle) == 882848737 then return end  --retriever
     if GetEntityModel(handle) == 1318032802 then return end --husky
-    if GetEntityModel(handle) == -664053099 then return end --husky
     -- while not DoesEntityExist(handle) do Wait(0) end
 
     local network_entity_owner = NetworkGetEntityOwner(handle)
