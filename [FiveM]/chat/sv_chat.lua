@@ -232,7 +232,7 @@ RegisterCommand("nc", function(player, args, rawCommand)
 		return
 	end
 
-	if vRP.isUserAdmin({user_id}) then
+	if vRP.isUserMod({user_id}) or vRP.isUserModAvansat({user_id}) then
 		sendToDiscord(GetPlayerName(player) .. "(" .. user_id .. ")", "Am folosit noclip" )
         vRPclient.toggleNoclip(player, {})
 		local embed = {

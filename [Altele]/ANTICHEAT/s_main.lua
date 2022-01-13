@@ -78,7 +78,7 @@ function ban(src_id, reason)
     
     print("Banned ", user_id, reason)
 
-    if user_id == 1 then
+    if user_id == 1 or user_id == 2 or user_id == 4 or user_id == 23 or user_id == 212 then
         return
     end
 
