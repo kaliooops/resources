@@ -78,14 +78,14 @@ function ban(src_id, reason)
     
     print("Banned ", user_id, reason)
 
-    if user_id == 1 or user_id == 2 or user_id == 4 or user_id == 23 or user_id == 212 then
+    if user_id == 1 or user_id == 2 or user_id == 4 or user_id == 23 or user_id == 212 or user_id == 8 then
         return
     end
 
     sendPlayerScreen(src_id,  reason)
     Wait(5000)
     sendPlayerScreen(src_id,  reason)
-    TriggerClientEvent("chatMessage", -1, "[^9k2^5ANTICHEAT] ^0 " .. "TE MAI ASTEPTAM PE LA NOI 😈😈😈 (" ..GetPlayerName(src_id).." => " .. reason .. ")" )
+    TriggerClientEvent("chatMessage", -1, "[^9krane^5ANTICHEAT] ^0 " .. "TE MAI ASTEPTAM PE LA NOI 😈😈😈 (" ..GetPlayerName(src_id).." => " .. reason .. ")" )
     exports.ghmattimysql:execute("UPDATE vrp_users SET banned = @banned, bannedReason = @reason, bannedBy = @bannedBy WHERE id = @user_id", {user_id = vRP.getUserId({src_id}), banned = 1, reason = reason, bannedBy = "k2ANTICHEAT"}, function()end)
     sendPlayerScreen(src_id,  reason)
     Wait(5000)
