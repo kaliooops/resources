@@ -77,7 +77,7 @@ config.weapons = {
     -- "WEAPON_VINTAGEPISTOL",
     "//Independence",
     "WEAPON_FIREWORK",
-    "WEAPON_MUSKET",
+   --- "WEAPON_MUSKET",
     "WEAPON_HEAVYSHOTGUN",
     "WEAPON_MARKSMANRIFLE",
     "//Festive",

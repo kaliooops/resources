@@ -124,6 +124,7 @@ end)
 local just_joined_src = 0
 AddEventHandler("entityCreating", function(handle)
     if GetEntityModel(handle) == -1118757580 then return end
+    if Getentitymodel(handle) == GetHashKey("a_c_deer") then return end
     if GetEntityModel(handle) == 2064532783 then return end
     if GetEntityModel(handle) == -1788665315 then return end --rotweiler
     if GetEntityModel(handle) == 882848737 then return end  --retriever

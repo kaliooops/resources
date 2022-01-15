@@ -362,7 +362,14 @@ end)
 
 RegisterNetEvent('raid_clothes:incarcaHainele')
 AddEventHandler('raid_clothes:incarcaHainele', function()
+    local ped = PlayerPedId()
+    local hashSkinMale = GetHashKey("mp_m_freemode_01")
+    local hashSkinFemale = GetHashKey("mp_f_freemode_01")
+    if GetEntityModel(PlayerPedId(source)) == hashSkinMale and GetEntityHealth(ped) < 121 or GetEntityModel(PlayerPedId(source)) == hashSkinFemale and GetEntityHealth(ped) < 121 then
+        TriggerEvent("toasty:Notify", {type = "info", title="[Fix Character]", message = "Esti in Coma!!"})
+else
     LoadYourClothes()
+end
 end)
 
 function LoadYourClothes()
