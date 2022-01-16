@@ -1,5 +1,5 @@
 spawn_locations = {
-    ['Spawn_Point']  = vector3(-542.17279052734, -209.32588195801, 37.649642944336), --spawn point
+    ['Spawn_Point']  = vector3(225.22079467774,-897.77069091796,30.699991226196), --spawn point
     ['Centru_Point'] = vector3(2504.1027832032, -244.3578338623, -59.308464050292) -- Casino
 }
 
