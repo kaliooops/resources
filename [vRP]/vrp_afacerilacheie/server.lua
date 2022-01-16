@@ -251,7 +251,7 @@ function vRPS.exitHouseMenu(id)
         if result[1].status == false then
           menu["Incuie Afacerea"] = {function(player,choice) lock(player) end}
         elseif result[1].status == true then
-          menu["UnIncuie Afacerea"] = {function(player,choice) unlock(player) end}
+          menu["Descuie Afacerea"] = {function(player,choice) unlock(player) end}
         end
       end
 			vRP.openMenu({player,menu})

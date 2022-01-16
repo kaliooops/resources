@@ -69,12 +69,18 @@ items["wbody|WEAPON_CARBINERIFLE"] = {"weapon", 0 ,0 ,0 , "arme/WEAPON_CARBINERI
 items["wbody|WEAPON_ASSAULTRIFLE"] = {"weapon", 0 ,0 ,0 , "arme/WEAPON_ASSAULTRIFLE.png"}
 items["wbody|WEAPON_GUSENBERG"] = {"weapon", 0 ,0 ,0 , "arme/WEAPON_GUSENBERG.png"}
 items["wbody|WEAPON_BALL"] = {"weapon", 0, 0, 0 , "arme/WEAPON_BALL.png"}
-items["wbody|WEAPON_DOUBLEACTION"] = {"weapon", 0, 0, 0 , "arme/WEAPON_VINTAGEPISTOL.png"}
-
+items["wbody|WEAPON_DOUBLEACTION"] = {"weapon", 0, 0, 0 , "arme/WEAPON_REVOLVER.png"}  
+items["wbody|WEAPON_SNIPERRIFLE"] = {"weapon", 0, 0, 0 , "arme/WEAPON_SNIPERRIFLE.png"}
+items["wbody|WEAPON_MG"] = {"weapon", 0, 0, 0 , "arme/WEAPON_MG.png"}
+items["wbody|WEAPON_SPECIALCARBINE"] = {"weapon", 0, 0, 0 , "arme/WEAPON_CARBINERIFLE.png"}
+items["wbody|WEAPON_MUSKET"] = {"weapon", 0, 0, 0 , "arme/WEAPON_MUSKET.png"}
 ------------------------------munitie-----------------------------------
 
 items["wammo|WEAPON_PETROLCAN"] = {"ammo",0 ,0 ,0 , "munitie/benzina.png"}
+items["wammo|WEAPON_MG"] = {"ammo",0 ,0 ,0 , "munitie/munitiesmg.png"}
+items["wammo|WEAPON_SPECIALCARBINE"] = {"ammo",0 ,0 ,0 , "munitie/munitiesmg.png"}
 items["wammo|WEAPON_PISTOL"] = {"ammo",0 ,0 ,0 , "munitie/munitiepistol.png"}
+items["wammo|WEAPON_SNIPERRIFLE"] = {"weapon", 0, 0, 0 , "munitie/munitiesmg.png.png"}
 items["wammo|WEAPON_PISTOL50"] = {"ammo",0 ,0 ,0 , "munitie/munitiepistol.png"}
 items["wammo|WEAPON_COMBATPISTOL"] = {"ammo",0 ,0 ,0 , "munitie/munitiepistol.png"}
 items["wammo|WEAPON_STUNGUN"] = {"ammo",0 ,0 ,0 , "munitie/munitietazer.png"}

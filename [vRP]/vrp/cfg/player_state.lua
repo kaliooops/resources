@@ -2,7 +2,7 @@ local cfg = {}
 
 -- define the first spawn position/radius of the player (very first spawn on the server, or after death)
 cfg.spawn_enabled = true -- set to false to disable the feature
-cfg.spawn_position = {-542.17919921875,-209.2947845459,37.64979171753}
+cfg.spawn_position = {223.61659240723,-899.25573730469,30.699993133545}
 cfg.spawn_death = {-495.90881347656,-336.69189453125,34.501678466796} -- x,y,z for death location
 cfg.spawn_radius = 1
 
@@ -23,4 +23,3 @@ cfg.clear_phone_directory_on_death = false
 cfg.lose_aptitudes_on_death = false
 
 return cfg
- -- {1151.2432861328,-1526.7790527344,34.843448638916}

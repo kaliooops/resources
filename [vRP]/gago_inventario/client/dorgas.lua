@@ -34,6 +34,10 @@ function vRPd.playScreenEffect(name, duration)
   end
 end
 
+function vRPd.armura()
+	ExecuteCommand("e adjust")
+end
+
 function vRPd.eat()
 	loadprop("prop_cs_burger_01",0,0,0)
 	playanim("mp_player_inteat@burger", "mp_player_int_eat_burger",48)
@@ -64,16 +68,14 @@ function vRPd.droga()
 	vRPd.resetMovement(false)
 	StopScreenEffect("DMT_flight")
 end
-function vRPd.iarba()
-	loadprop("prop_cigar_03",-0.1,0,0)
-	playanim("mp_player_int_uppersmoke","mp_player_int_smoke",48)
-	Citizen.Wait(GetAnimDuration("mp_player_int_uppersmoke","mp_player_int_smoke")*1000)
+function vRPd.drogmedicinal()
+	loadprop("prop_weed_bottle",0,0,0.05)
+	playanim("mp_player_intdrink","loop_bottle",48)
+	Citizen.Wait(GetAnimDuration("mp_player_intdrink","loop_bottle")*1000)
 	removeAttachedProp()
-	vRPd.playMovement("MOVE_M@DRUNK@SLIGHTLYDRUNK",true,true,false,false)
-	vRPd.playScreenEffect("DMT_flight", 120)   
-	Wait(0)
-	vRPd.resetMovement(false)
-	StopScreenEffect("DMT_flight")
+	vRPd.playScreenEffect("DrugsTrevorClownsFight", 120)
+	Wait(60000)
+	StopScreenEffect("DrugsTrevorClownsFight")
 	removeAttachedProp()
 end
 function vRPd.cigarettee()
@@ -84,9 +86,15 @@ function vRPd.cigarettee()
 
 end
 function vRPd.iarba()
-	loadprop("ng_proc_cigarette01a",0,0,0.05)
+	loadprop("prop_cigar_03",-0.1,0,0)
 	playanim("mp_player_int_uppersmoke","mp_player_int_smoke",48)
 	Citizen.Wait(GetAnimDuration("mp_player_int_uppersmoke","mp_player_int_smoke")*1000)
+	removeAttachedProp()
+	vRPd.playMovement("MOVE_M@DRUNK@SLIGHTLYDRUNK",true,true,false,false)
+	vRPd.playScreenEffect("DrugsTrevorClownsFight", 120)
+	Wait(60000)
+	vRPd.resetMovement(false)
+	StopScreenEffect("DrugsTrevorClownsFight")
 	removeAttachedProp()
 
 end

@@ -4,12 +4,12 @@ vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP", "gago_inventario")
 BMclient = Tunnel.getInterface("vRP_basic_menu","vRP_basic_menu")
 vRPbsC = Tunnel.getInterface("vRP_barbershop","vRP_basic_menu")
-Tunnel.bindInterface("vRP_basic_menu",vRPbm)
+-- Tunnel.bindInterface("vRP_basic_menu",vRPbm)
 vRPserver = Tunnel.getInterface("vRP", "vRP_basic_menu")
 HKserver = Tunnel.getInterface("vrp_hotkeys", "vRP_basic_menu")
 BMserver = Tunnel.getInterface("vRP_basic_menu", "vRP_basic_menu")
 
-Dclient = Tunnel.getInterface("gago_inventario","gago_inventario")
+vRPd = Tunnel.getInterface("gago_inventario","gago_inventario")
 
 RegisterServerEvent("gago_inventario:openGui")
 AddEventHandler("gago_inventario:openGui",function()
@@ -97,7 +97,6 @@ function split(str, sep)
     return array
 end
 
-
 local MosNicoale_items = {
     ['Portocala'] = function(src)
         ped = GetPlayerPed(src)
@@ -120,6 +119,7 @@ local MosNicoale_items = {
 }
 
 function useItem(user_id, player, idname, type, varyhealth, varyThirst, varyHunger, amount)
+
 
     for cheie, mnItems in pairs(MosNicoale_items) do
         if type == cheie then
@@ -167,6 +167,7 @@ end
         if type == "armura" then
             if vRP.tryGetInventoryItem({user_id, idname, tonumber(amount), false}) then
                 local fullidname = split(idname, "|")
+                vRPd.armura(player)
                 BMclient.setArmour(player,{100,true})
             end
         end
@@ -193,14 +194,14 @@ end
                 if vRP.tryGetInventoryItem({user_id,idname,1,false}) then
                     if varyHunger ~= 0 then vRP.varyHunger({user_id,varyHunger}) end
                     vRPclient.notify(player,{"~o~ Mananca "..idname.."."})
-                    Dclient.eat(player)
+                    vRPd.eat(player)
                 end
             end	
             if type == "bebida" then
                 if vRP.tryGetInventoryItem({user_id,idname,1,false}) then
                     if varyThirst ~= 0 then vRP.varyThirst({user_id,varyThirst}) end
                     vRPclient.notify(player,{"~b~ Hai sa bem "..idname.."."})
-                    Dclient.drink(player)
+                    vRPd.drink(player)
                 end
             end			
             if type == "emergencia" then
@@ -211,7 +212,7 @@ end
                             vRPclient.notify(player, {"~r~Eu cred ca esti lesinat"})
                         else
                     vRPclient.notify(player,{"~b~ Iti administrezi "..idname.."."})
-                    Dclient.emergencia(player)
+                    vRPd.emergencia(player)
                     vRPclient.varyHealth(player,{65})
                 end
             end)
@@ -225,7 +226,7 @@ end
                     vRPclient.notify(player, {"~r~Eu cred ca esti lesinat"})
                 else
             vRPclient.notify(player,{"~b~ Iti administrezi "..idname.."."})
-            Dclient.paracetamol(player)
+            vRPd.paracetamol(player)
             vRPclient.varyHealth(player,{25})
         end
     end)
@@ -239,7 +240,7 @@ end
                             vRPclient.notify(player, {"~r~Eu cred ca esti lesinat"})
                         else
                     vRPclient.notify(player,{"~b~ Hai sa bem "..idname.."."})
-                    Dclient.drinkalcool(player)
+                    vRPd.drinkalcool(player)
                 end
             end)
         end
@@ -252,7 +253,7 @@ end
                             vRPclient.notify(player, {"~r~Eu cred ca esti lesinat"})
                         else
                     vRPclient.notify(player,{"~b~ Fumezi un Joint "..idname.."."})
-                    Dclient.iarba(player)
+                    vRPd.iarba(player)
                     vRPclient.varyHealth(player,{15})
                 end
             end)
@@ -266,7 +267,11 @@ end
                             vRPclient.notify(player, {"~r~Eu cred ca esti lesinat"})
                         else
                     vRPclient.notify(player,{"~b~ Iti administrezi "..idname.."."})
-                    Dclient.drogmedicinal(player)
+                    vRPd.drogmedicinal(player)
+                        
+                    healing = true
+                    Wait(20000)
+                    healing = false
                     vRPclient.varyHealth(player,{80})
                 end
             end	)
@@ -278,12 +283,11 @@ end
                         vRPclient.notify(player, {"~r~Eu cred ca esti lesinat"})
                     else
                 vRPclient.notify(player,{"~b~ Fumezi "..idname.."."})
-                    Dclient.cigarettee(player)
+                    vRPd.cigarettee(player)
                     vRPclient.varyHealth(player,{10})
                 end
             end)
             end
-
 
         if type == "none" then
             TriggerClientEvent("toasty:Notify", player , {type = "info", title="Inventar", message = "Acest articol nu poate fi utilizat."})

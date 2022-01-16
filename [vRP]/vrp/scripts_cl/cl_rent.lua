@@ -1,4 +1,4 @@
-local pos = {x=-511.2631225586,y=-262.33056640625,z=35.062629699708}
+local pos = {x=249.10105895996,y=-864.55535888672,z=29.521238327026}
 ----------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------
@@ -6,7 +6,7 @@ Citizen.CreateThread(function()
   local waittime = 1000
   while true do
     Citizen.Wait(waittime)
-    if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, GetEntityCoords(GetPlayerPed(-1))) < 20.0 then
+    if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, GetEntityCoords(GetPlayerPed(-1))) < 30.0 then
       waittime = 0
     DrawMarker(6, pos.x,pos.y,pos.z+0.25, 0, 0, 0, 0, 0, 0, 1.0,1.0,1.0, 255,255,255, 200, 0, 0, 0, 1, 0, 0, 0)
     DrawMarker(36, pos.x,pos.y,pos.z+0.25, 0, 0, 0, 0, 0, 0, 1.0,1.0,1.0, 98, 20, 208, 200, 0, 0, 0, 1, 0, 0, 0)
