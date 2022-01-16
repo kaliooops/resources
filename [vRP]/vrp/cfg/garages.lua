@@ -101,6 +101,7 @@ cfg.garage_types = {
 		---Motoare noi
 		["xre300"] = {"Honda XRE 300", 2000, ""},
 		["r11998"] = {"Yamaha R1", 2000, ""},
+		["rrphantom"] = {"Rolce Roys Phantom", 200000,""},
 
 		----Showroom cu Diamante
 		["chargerf8"] = {"Dodge Charger Overpower", 2000, ""},
