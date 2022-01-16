@@ -22,7 +22,7 @@ function k_draw3DText(x, y, z, text)
     local px,py,pz=table.unpack(GetGameplayCamCoords())
     local dist = GetDistanceBetweenCoords(px,py,pz, x,y,z, 1)
  
-    local scale = (1/dist)*4
+    local scale = (1/dist)*3
     local fov = (1/GetGameplayCamFov())*100
     local scale = scale*fov
    
@@ -85,3 +85,20 @@ function isInPlayableArea(coords)
     
     
 end
+
+
+function force_load_objects()
+    TriggerClientEvent("toasty:Notify",{type = "info", title="[PUBG]", message="Loading objects..."})
+    hashes = {
+        2055492359,
+        1790162299
+    }
+
+    for _, h in pairs(hashes) do
+        RequestModel(h)
+        while not HasModelLoaded(h) do
+            Wait(100)
+        end
+    end
+end
+

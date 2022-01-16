@@ -15,6 +15,8 @@ config.allowed_objects = {
     -1964402432,
     1336576410,
     -1916111695,
+    2055492359,
+    1790162299,
     GetHashKey("prop_plastic_cup_02"),
     GetHashKey("prop_acc_guitar_01"),
     GetHashKey("ba_prop_battle_champ_open"),
