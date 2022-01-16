@@ -261,7 +261,7 @@ RegisterCommand("respawn", function(player, args)
         local target_src = vRP.getUserSource({target_id})
         if target_src then
             vRPclient.varyHealth(target_src,{100})
-			vRPclient.teleport(target_src, {-542.14282226562,-209.27868652344,37.649787902832})
+			vRPclient.teleport(target_src, {229.51574707032,-878.86340332032,30.492109298706})
 			local users = vRP.getUsers({})
 			for uID, ply in pairs(users) do
 				if vRP.isUserTrialHelper({uID}) then
