@@ -73,6 +73,7 @@ CreateThread(function() --updater
                 args = {"[^1PUBG]", "^0Jocul de PUBG a luat sfarsit.\nWinner: ID(" .. lobby[1] .. ") !"} -- args
             })
             TriggerClientEvent("toasty:Notify", vRP.getUserSource({lobby[1]}), {type="success", title="[PUBG]", message="Ai castigat jocul de PUBG si $1.000!"})
+            TriggerClientEvent("chatMessage", -1, "[^9PUBG] ^0 " .. "Meciul a luat sfarsit!" )
             vRP.giveMoney({lobby[1], 1000})
             TriggerClientEvent("PUBG:WINNER", vRP.getUserSource({lobby[1]}))
             vRP.clearInventory({lobby[1]})

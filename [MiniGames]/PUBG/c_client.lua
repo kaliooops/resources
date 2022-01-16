@@ -180,7 +180,7 @@ AddEventHandler("PUBG:UseCrate", function (success)
     if not success then
         TriggerEvent("toasty:Notify", {type="error", title="[PUBG]", message="Crate-ul e gol"})
     else
-        for i=0,5,1 do
+        for i=0,3,1 do
             r_item = pubg_cfg.weapons.crate_drops[math.random(1, #pubg_cfg.weapons.crate_drops)]
             TriggerServerEvent("PUBG:GiveItem", r_item)
         end
