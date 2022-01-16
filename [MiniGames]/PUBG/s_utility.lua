@@ -15,7 +15,7 @@ end
 
 
 function return_Items(uID)
-    if #player_inventories[uID] > 0 then
+    if #player_inventories[uID] ~= nil then
         for k, v in pairs(player_inventories[uID]) do
             if k ~= nil then
                 vRP.giveInventoryItem({uID, k, player_inventories[uID][k]['amount']})
