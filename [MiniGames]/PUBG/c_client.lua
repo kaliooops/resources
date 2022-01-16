@@ -22,7 +22,7 @@ CreateThread(function()
         Wait(0)
         if client_info.total_players < 6 then
             if client_info.is_in_game then
-                drawHudText(0.5, 0.05, 0.1, 0.1, 0.8, "Players: " .. client_info.total_players .. "/30" , 255, 255, 255, 255, false, 4, true)
+                drawHudText(0.5, 0.05, 0.1, 0.1, 0.8, "Players: " .. client_info.total_players .. "/30 (/leavepubg pentru a iesi)" , 255, 255, 255, 255, false, 4, true)
             end
         else
             if not client_info.game_running then
@@ -134,6 +134,19 @@ end)
 
 RegisterCommand("pubg", function ()
     TriggerServerEvent("PUBG:AddLobby")
+end, false)
+
+RegisterCommand("leavepubg", function()
+    TriggerServerEvent("PUBG:RemoveLobby")
+    client_info = {
+        game_countdown = 60,
+        game_running = false,
+        game_timer =  600,
+        is_in_game =  false,
+        teleported_to_wp = false,
+        total_players = 0,
+    }    
+    SetEntityCoords(PlayerPedId(), -536.83709716797,-218.65562438965,37.649787902832, 0, 0, 0, false)
 end, false)
 
 RegisterNetEvent("PUBG:SetFriendlyFireOff")
