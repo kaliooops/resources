@@ -38,18 +38,6 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-    for _, item in pairs(Config.Locations) do
-      item.blip = AddBlipForCoord(item.x, item.y, item.z)
-      SetBlipSprite(item.blip, item.id)
-      SetBlipAsShortRange(item.blip, true)
-      SetBlipColour(item.blip, item.colour)
-      BeginTextCommandSetBlipName("STRING")
-      AddTextComponentString(item.name)
-      EndTextCommandSetBlipName(item.blip)
-    end
-end)
-
-Citizen.CreateThread(function()
   while true do
     if open then
       local ply = GetPlayerPed(-1)

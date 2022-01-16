@@ -5,7 +5,24 @@ var configs = {
     },
     jobs: [
         // Whitelisted jobs
-
+        {
+            "title": "PUBG Cayo Perico",
+            "shortDescription": "Te poti juca PUBG pe Cayo Perico!",
+            "description": "Este un sistem nou creat la sugestia unui jucator, te poti juca PUBG pe insula folosind comanda /pubg",
+            "group": "",
+            "whitlisted": true,
+            "iconName": "pubg.png",
+            requirments: ["Scrie (/pubg) pentru a intra in lobby.", "Meciul incepe cand in lobby se afla minim 6 playeri.","Poti pune waypoint unde vrei sa te spawnezi la inceputul meciului.","Cauta crate-urile cu arme/medicamente/armuri.", "Pentru a iesi din lobby folosesti comanda (/leavpubg)"]
+        },
+        {
+            "title": "Pet Shop",
+            "shortDescription": "Cumpara un catelus de la Pet Shop!",
+            "description": "Daca vrei un animal de companie, poti achizitiona unul de la magazinul de animalute din Sandy, (k>GPS>PetShop)",
+            "group": "",
+            "whitelisted": true,
+            "iconName": "pets.png",
+            requirements: ["Cumpara pet de la magazinul de animale.","Acceseaza meniul animalutului de pe tasta [F8]","Cumpara mancare pentru animalut de la magazinul alimentar."]
+        },
         // Unwhitelisted jobs
         {
             "title": "Patroni",

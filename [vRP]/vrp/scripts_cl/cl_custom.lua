@@ -37,7 +37,7 @@ local saititraglamuiemachiamarapunzel = {
     {"Sala de forta",246.01,-264.76,59.92,311,17,0.8},
     --{"Politie",444.64547729492,-991.77990722656,30.689582824707,526,29,0.8},
     {"Armament Politie",460.39306640625,-981.12103271484,30.689577102661,110,3,0.8},
-    {"Primarie",-538.74041748047,-215.06581115723,37.649810791016,181,0,0.8}
+    {"Primarie",225.21,-897.77,330.70,181,0,1.1}
 }
 Citizen.CreateThread(function()
     for i,v in pairs(saititraglamuiemachiamarapunzel)do
