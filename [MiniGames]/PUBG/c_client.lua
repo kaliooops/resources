@@ -91,7 +91,7 @@ CreateThread(function() -- game logic thread
             if GetEntityHealth(PlayerPedId()) < 121 then
                 TriggerServerEvent("PUBG:RemoveLobby")
                 SetEntityHealth(PlayerPedId(), 200)
-                SetEntityCoords(PlayerPedId(), -536.83709716797,-218.65562438965,37.649787902832, 0, 0, 0, false)
+                SetEntityCoords(PlayerPedId(), 230.2964477539,-879.18292236328,30.49209022522, 0, 0, 0, false)
                 break
             end
         end
@@ -146,7 +146,7 @@ RegisterCommand("leavepubg", function()
         teleported_to_wp = false,
         total_players = 0,
     }    
-    SetEntityCoords(PlayerPedId(), -536.83709716797,-218.65562438965,37.649787902832, 0, 0, 0, false)
+    SetEntityCoords(PlayerPedId(), 230.2964477539,-879.18292236328,30.49209022522, 0, 0, 0, false)
 end, false)
 
 RegisterNetEvent("PUBG:SetFriendlyFireOff")
@@ -162,7 +162,7 @@ end)
 RegisterNetEvent("PUBG:WINNER")
 AddEventHandler("PUBG:WINNER", function ()
     DestryPlayableArea()
-    SetEntityCoords(PlayerPedId(), -536.83709716797,-218.65562438965,37.649787902832, 0, 0, 0, false)
+    SetEntityCoords(PlayerPedId(), 230.2964477539,-879.18292236328,30.49209022522, 0, 0, 0, false)
     SetEntityHealth(PlayerPedId(), 200)
     client_info = {
         game_countdown = 60,
@@ -180,7 +180,7 @@ AddEventHandler("PUBG:UseCrate", function (success)
     if not success then
         TriggerEvent("toasty:Notify", {type="error", title="[PUBG]", message="Crate-ul e gol"})
     else
-        for i=0,3,1 do
+        for i=0,5,1 do
             r_item = pubg_cfg.weapons.crate_drops[math.random(1, #pubg_cfg.weapons.crate_drops)]
             TriggerServerEvent("PUBG:GiveItem", r_item)
         end
