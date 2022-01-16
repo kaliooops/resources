@@ -1424,7 +1424,6 @@ vRP.registerMenuBuilder("main", function(add, data)
 			menu["Give item"] = {ch_giveitem}
 		end
 		if vRP.isUserAdmin(user_id) then
-			menu["Unban"] = {ch_unban}
 			menu["Verifica jucator"] = {ch_checkplayer}
 			menu["Ban permanent"] = {ch_ban}
 		end
@@ -1440,6 +1439,7 @@ vRP.registerMenuBuilder("main", function(add, data)
 		if vRP.isUserHelper(user_id) then
 			menu["TpToPlace"] = {ch_tptoplace}
 			menu["TpToMe"] = {ch_tptome}
+			menu["Unban"] = {ch_unban}
 			menu["TpTo"] = {ch_tpto}
 		end
 		if vRP.isUserTrialHelper(user_id) then
