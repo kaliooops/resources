@@ -129,6 +129,7 @@ AddEventHandler("entityCreating", function(handle)
     if GetEntityModel(handle) == 882848737 then return end  --retriever
     if GetEntityModel(handle) == 1318032802 then return end --husky
     if GetEntityModel(handle) == 2055492359 then return end --crate
+    if Getentitymodel(handle) == GetHashKey("a_c_deer") then return end --capreoare
     
 
 
