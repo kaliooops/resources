@@ -10,7 +10,7 @@ var configs = {
             "shortDescription": "Te poti juca PUBG pe Cayo Perico!",
             "description": "Este un sistem nou creat la sugestia unui jucator, te poti juca PUBG pe insula folosind comanda /pubg",
             "group": "",
-            "whitlisted": true,
+            "whitelisted": true,
             "iconName": "pubg.png",
             requirments: ["Scrie (/pubg) pentru a intra in lobby.", "Meciul incepe cand in lobby se afla minim 6 playeri.","Poti pune waypoint unde vrei sa te spawnezi la inceputul meciului.","Cauta crate-urile cu arme/medicamente/armuri.", "Pentru a iesi din lobby folosesti comanda (/leavpubg)"]
         },
