@@ -268,11 +268,7 @@ end
                         else
                     vRPclient.notify(player,{"~b~ Iti administrezi "..idname.."."})
                     vRPd.drogmedicinal(player)
-                        
-                    healing = true
-                    Wait(20000)
-                    healing = false
-                    vRPclient.varyHealth(player,{80})
+                    vRPclient.varyHealth(player,{100})
                 end
             end	)
             if type == "tigara" then

@@ -25,7 +25,6 @@ Proxy.addInterface("gago_inventario",vRPd)
 
 local entity
 
-
 function vRPd.playScreenEffect(name, duration)
   if duration < 0 then -- loop
     StartScreenEffect(name, 0, true)
