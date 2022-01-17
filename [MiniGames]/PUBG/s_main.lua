@@ -67,11 +67,6 @@ CreateThread(function() --updater
             game_timer = 600
             sent_chat_message = false
             countdown = 60
-            TriggerEvent("chat:addMessage", -1, {
-                color = {255, 0, 0}, -- red
-                multiline = true, -- multiline
-                args = {"[^1PUBG]", "^0Jocul de PUBG a luat sfarsit.\nWinner: ID(" .. lobby[1] .. ") !"} -- args
-            })
             TriggerClientEvent("toasty:Notify", vRP.getUserSource({lobby[1]}), {type="success", title="[PUBG]", message="Ai castigat jocul de PUBG si $1.000!"})
             TriggerClientEvent("chatMessage", -1, "[^9PUBG] ^0 " .. "Meciul a luat sfarsit!" )
             vRP.giveMoney({lobby[1], 1000})

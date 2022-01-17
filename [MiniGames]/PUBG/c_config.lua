@@ -72,12 +72,12 @@ pubg_cfg.weapons = {
         --weapons
         "wbody|weapon_specialcarbine",
         "wbody|weapon_mg",
-        "wbody|weapon_sniperrifle",
+        "wbody|WEAPON_SNIPERRIFLE",
         "wbody|weapon_pumpshotgun",
         --ammo
         "wammo|weapon_specialcarbine",
         "wammo|weapon_mg",
-        "wammo|weapon_sniperrifle",
+        "wammo|WEAPON_SNIPERRIFLE",
         "wammo|weapon_pumpshotgun",
         --self
         "paracetamol",
