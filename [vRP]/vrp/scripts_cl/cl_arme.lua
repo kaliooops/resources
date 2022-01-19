@@ -32,7 +32,7 @@ end)
 
 RegisterNetEvent('double:politie')
 AddEventHandler('double:politie', function()
-    giveWeapon("weapon_pistol")
+    giveWeapon("weapon_appistol")
     giveWeapon("weapon_stungun")
     giveWeapon("weapon_nightstick")
     giveWeapon("weapon_carbinerifle")
