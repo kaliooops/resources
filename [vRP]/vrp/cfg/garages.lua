@@ -224,7 +224,7 @@ cfg.garage_types = {
 		["brabus700"] = {"Brabus 6x6", 0, ""},
 	},
 	["Triadele"] = {
-		_config = {vtype="car", hasbuy = true, faction="Los Vagos", tosell=true, tosell = true, iconColor = {0,255,0}},
+		_config = {vtype="car", hasbuy = true, faction="Triadele", tosell=true, tosell = true, iconColor = {0,255,0}},
 		["lanex400"] = {"Mitsubishi Lancer X",0, ""},
     	["rmodx6"] = {"BMW X6 Breithaus",0, ""},
 		["GODzMANURUS"] = {"LV Urus",0, ""},
