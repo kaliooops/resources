@@ -223,8 +223,7 @@ cfg.garage_types = {
     	["rmodx6"] = {"BMW X6 Breithaus",0, ""},
 		["brabus700"] = {"Brabus 6x6", 0, ""},
 	},
-
-	["Los Vagos"] = {
+	["Triadele"] = {
 		_config = {vtype="car", hasbuy = true, faction="Los Vagos", tosell=true, tosell = true, iconColor = {0,255,0}},
 		["lanex400"] = {"Mitsubishi Lancer X",0, ""},
     	["rmodx6"] = {"BMW X6 Breithaus",0, ""},
@@ -373,7 +372,7 @@ cfg.garages = {
 	-- {"Crips",-246.86389160156,492.12530517578,125.94523620605},
 	{"Personal", -1546.5185546875,888.16491699218,181.3410949707},
 	{"Y.A.D", -1146.9575195312,-1544.7224121094,4.3218159675598},
-	{"Los Vagos", 967.86981201172,-1816.3041992188,31.082265853882},
+	{"Triadele", -670.97570800782,910.7855834961,230.29754638672},
 
 
 	----Lege

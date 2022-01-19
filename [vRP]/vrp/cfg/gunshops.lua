@@ -34,7 +34,6 @@ cfg.gunshop_types = {
     ["WEAPON_PUMPSHOTGUN"] = {"Pump Shotgun",0,0,""},
     ["WEAPON_DOUBLEACTION"] = {"Double Action",0,0,""},
     ["WEAPON_CARBINERIFLE"] = {"Lanternă",0,0,""},
-    ["WEAPON_ASSAULTSHOTGUN"] = {"Shot Gun",0,0,""},
     ["WEAPON_APPISTOL"] = {"Pistol",0,0,""},
     ["WEAPON_COMBATPISTOL"] = {"Combat Pistol",0,0,""},
     ["WEAPON_PISTOL50"] = {"Pistol .50",0,0,""},
@@ -76,24 +75,6 @@ cfg.gunshop_types = {
     ["WEAPON_KNIFE"] = {"Knife",0,0,""}
   },
 
-  ["Y.A.D"] = {
-    _config = {blipid=110, blipcolor=40, faction = "KMN Gang"},
-    ["WEAPON_PETROLCAN"] = {"Petrol",0,0,""},
-    ["WEAPON_PUMPSHOTGUN"] = {"Pump Shotgun",0,0,""},
-    ["WEAPON_DOUBLEACTION"] = {"Double Action",0,0,""},
-    ["WEAPON_CARBINERIFLE"] = {"Lanternă",0,0,""},
-    ["WEAPON_ASSAULTSHOTGUN"] = {"Shot Gun",0,0,""},
-    ["WEAPON_APPISTOL"] = {"Pistol",0,0,""},
-    ["WEAPON_COMBATPISTOL"] = {"Combat Pistol",0,0,""},
-    ["WEAPON_PISTOL50"] = {"Pistol .50",0,0,""},
-    ["WEAPON_ASSAULTRIFLE"] = {"Assault Rifle",0,0,""},
-    ["WEAPON_HEAVYSHOTGUN"] = {"Heavy Shotgun",0,0,""},
-    ["WEAPON_ASSAULTSHOTGUN"] = {"Assault Shotgun",0,0,""},
-    ["WEAPON_SPECIALCARBINE"] = {"Special Carabine",0,0,""},
-    ["WEAPON_KNUCKLE"] = {"Knuckle",0,0,""},
-    ["WEAPON_KNIFE"] = {"Knife",0,0,""}
-  },
-
 -- list of gunshops positions
 
 cfg.gunshops == {
@@ -111,7 +92,7 @@ cfg.gunshops == {
 
 
   -- Mafii NOI
-  {"Groove Street", 75.576934814453,-1970.2274169922,21.125188827515},
+  -- {"Groove Street", 75.576934814453,-1970.2274169922,21.125188827515},
 	-- {"Cartel de Medellin", -2587.6401367188,1911.1881103516,167.49882507324},
 	-- {"La Famillia", -1885.9158935547,2074.6630859375,140.99742126465},
 	-- {"Diablos", -822.50024414062,-1223.3095703125,7.3654088974},

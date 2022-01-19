@@ -79,8 +79,8 @@ cfg.market_types = {
   },
 
 
-   ["Arme LV"] = {
-    _config = {faction = "Los Vagos"},
+   ["Arme Triade"] = {
+    _config = {faction = "Triadele"},
     ["wbody|WEAPON_DAGGER"] = 100,
     ["wbody|WEAPON_BAT"] = 60,
     ["wbody|WEAPON_DOUBLEACTION"] = 700,
@@ -129,7 +129,6 @@ cfg.market_types = {
     ["wbody|WEAPON_PISTOL"] = 300,
     ["wbody|WEAPON_COMBATPISTOL"] = 400,
     ["wbody|WEAPON_SNSPISTOL"] = 200,
-    ["wbody|WEAPON_VINTAGEPISTOL"] = 500,
     ["wbody|WEAPON_REVOLVER"] = 700,
     ["wbody|WEAPON_MICROSMG"] = 1200,
     ["wbody|WEAPON_SMG"] = 1500,
@@ -141,10 +140,10 @@ cfg.market_types = {
     ["wammo|WEAPON_PISTOL50"] = 3,
     ["wammo|WEAPON_COMBATPISTOL"] = 2,
     ["wammo|WEAPON_SNSPISTOL"] = 1,
-    ["wammo|WEAPON_VINTAGEPISTOL"] = 3,
     ["wammo|WEAPON_MICROSMG"] = 4,
     ["wammo|WEAPON_SMG"] = 4,
     ["wammo|WEAPON_ASSAULTSMG"] = 4,
+    ["wammo|WEAPON_REVOLVER"] = 4,
     ["wammo|WEAPON_CARBINERIFLE"] = 5,
     ["wammo|WEAPON_ASSAULTRIFLE"] = 5,
   },
@@ -230,7 +229,7 @@ cfg.markets = {
   {"Arme Y.A.D", -1152.7413330078,-1516.723022461,10.632727622986},
   {"Arme Groove",84.986709594726,-1958.7644042968,21.121685028076},
   {"Arme KMN",-3022.5773925782,39.314754486084,10.117791175842},
-  {"Arme LV", 981.61541748046,-1805.7686767578,35.484539031982},
+  {"Arme Triade", 981.61541748046,-1805.7686767578,35.484539031982},
 
   ---------Droage
   {"Cannabis",1521.5688476563,6331.1420898438,24.152729034424},

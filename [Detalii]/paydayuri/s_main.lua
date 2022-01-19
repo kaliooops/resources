@@ -51,12 +51,12 @@ cfg = {
         ['Lider']= 1000,
     },
 
-    ['Los Vagos'] = {
+    ['Triadele'] = {
         ['Membru'] = 200,
         ['Tester'] = 400,
         ['Baza'] = 700,
         ['Colider'] = 1000,
-        ['Lider']= 2500,
+        ['Lider']= 1000,
     },
 
     ['Y.A.D'] = {

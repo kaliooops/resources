@@ -59,17 +59,17 @@ cfg.factions = {
 		}
 	},
 
-	["Los Vagos"] = {
+	["Triadele"] = {
 		fSlots = 12,
 		fType = "Mafie",
-		coords = {75.576934814453,-1970.2274169922,21.125188827515},
-        color = 46,
+		coords = {-668.95050048828,865.6162109375,225.05242919922},
+        color = 43,
 		fRanks = {
 		    [1] = {rank = "Membru", salary = 500},
 			[2] = {rank = "Tester", salary = 700},
 			[3] = {rank = "Baza", salary = 800},
 			[4] = {rank = "Co-Lider", salary = 1000},
-			[5] = {rank = "Lider", salary = 2000}
+			[5] = {rank = "Lider", salary = 1000}
 		}
 	},
 
