@@ -266,10 +266,15 @@ end
                         if(in_coma)then
                             vRPclient.notify(player, {"~r~Eu cred ca esti lesinat"})
                         else
-                    vRPclient.notify(player,{"~b~ Iti administrezi "..idname.."."})
-                    vRPd.drogmedicinal(player)
-                    vRPclient.varyHealth(player,{100})
-                end
+                            vRPclient.notify(player,{"~b~ Iti administrezi "..idname.."."})
+                            vRPd.drogmedicinal(player)
+                            for i = 1, 120 do
+                                Wait(1000)
+                                if GetEntityHealth(GetPlayerPed(player)) > 120 then
+                                    vRPclient.varyHealth(player,{1})
+                            end
+        end
+    end
             end	)
             if type == "tigara" then
                 if vRP.tryGetInventoryItem({user_id,idname,1,false}) then
