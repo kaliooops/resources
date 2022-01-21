@@ -42,14 +42,27 @@ AddEventHandler("PUBG:AddLobby", function()
     end
 end)
 
+function getIndex(t, value)
+    for k,v in pairs(t) do
+        if v == value then
+            return k
+        end
+    end
+    return nil
+end
+
 RegisterNetEvent("PUBG:RemoveLobby")
 AddEventHandler("PUBG:RemoveLobby", function ()
 
-    for k, _ in pairs(lobby) do
-        if lobby[k] == vRP.getUserId({source}) then
-            table.remove(lobby, k)
-        end
+    --remove player source from lobby
+    local uID = vRP.getUserId({source})
+    if contains(lobby, uID) then
+        table.remove(lobby, getIndex(lobby, uID))
+        TriggerClientEvent("toasty:Notify", source, {type="error",title="[PUBG]", message="Ai pierdut."})
+        print("Removed " .. uID .. " from lobby")
     end
+
+    
 
     vRP.clearInventory({vRP.getUserId({source})})
     TriggerClientEvent("PUBG:RestoreEqWeapons", source)
