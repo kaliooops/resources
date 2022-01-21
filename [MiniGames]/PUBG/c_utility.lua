@@ -64,6 +64,13 @@ end
 function DestryPlayableArea()
     RemoveBlip(play_area_blip)
     play_area_blip = nil
+    pubg_cfg.playable_area = {
+        center_point = vector3(5089.3032226562,-4916.1875,111.70515441895),
+        width = 2000.0,
+        height = 2000.0,
+        rot = 36,
+        radius = 150,
+    }    
 end
 
 
