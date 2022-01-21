@@ -106,6 +106,7 @@ CreateThread(function() -- game logic thread
             total_players = 0,
         }    
         DestryPlayableArea()
+        redrawed = false
     end
 end)
 
@@ -172,6 +173,7 @@ AddEventHandler("PUBG:WINNER", function ()
         teleported_to_wp = false,
         total_players = 0,
     }    
+    redrawed = false
 end)
 
 
