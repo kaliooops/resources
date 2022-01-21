@@ -45,6 +45,7 @@ end
 
 play_area_blip = nil
 function drawPlayableArea()
+    print("[PUBG] DRAWPLAYABLE ")
     play_area_blip = AddBlipForArea(pubg_cfg.playable_area.center_point[1], pubg_cfg.playable_area.center_point[2], pubg_cfg.playable_area.center_point[3], pubg_cfg.playable_area.width, pubg_cfg.playable_area.height)
     SetBlipRotation(play_area_blip, 0)
     SetBlipColour(play_area_blip, 67)
@@ -53,6 +54,7 @@ function drawPlayableArea()
 end
 
 function reDrawPlayableArea()
+    print("[PUBG] redraw called")
     DestryPlayableArea()
     play_area_blip = AddBlipForArea(pubg_cfg.playable_area.center_point[1], pubg_cfg.playable_area.center_point[2], pubg_cfg.playable_area.center_point[3], pubg_cfg.playable_area.width, pubg_cfg.playable_area.height)
     SetBlipRotation(play_area_blip, 0)
@@ -62,15 +64,9 @@ function reDrawPlayableArea()
 end
 
 function DestryPlayableArea()
+    print("[PUBG] DESTROYED AREA")
     RemoveBlip(play_area_blip)
     play_area_blip = nil
-    pubg_cfg.playable_area = {
-        center_point = vector3(5089.3032226562,-4916.1875,111.70515441895),
-        width = 2000.0,
-        height = 2000.0,
-        rot = 36,
-        radius = 150,
-    }    
 end
 
 
