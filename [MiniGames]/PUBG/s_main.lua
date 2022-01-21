@@ -42,27 +42,14 @@ AddEventHandler("PUBG:AddLobby", function()
     end
 end)
 
-function getIndex(t, value)
-    for k,v in pairs(t) do
-        if v == value then
-            return k
-        end
-    end
-    return nil
-end
-
 RegisterNetEvent("PUBG:RemoveLobby")
 AddEventHandler("PUBG:RemoveLobby", function ()
 
-    --remove player source from lobby
-    local uID = vRP.getUserId({source})
-    if contains(lobby, uID) then
-        table.remove(lobby, getIndex(lobby, uID))
-        TriggerClientEvent("toasty:Notify", source, {type="error",title="[PUBG]", message="Ai pierdut."})
-        print("Removed " .. uID .. " from lobby")
+    for k, _ in pairs(lobby) do
+        if lobby[k] == vRP.getUserId({source}) then
+            table.remove(lobby, k)
+        end
     end
-
-    
 
     vRP.clearInventory({vRP.getUserId({source})})
     TriggerClientEvent("PUBG:RestoreEqWeapons", source)
@@ -146,26 +133,27 @@ function spawn_default_crates()
 end
 
 CreateThread(function() --game timer
-    while not game_running do Wait(1000) end
-    kCleanUp()
-    spawn_default_crates()
-    while game_running do 
-        Wait(1000)
-        game_timer = game_timer - 1
+    while true do
+        while not game_running do Wait(1000) end
+        kCleanUp()
+        spawn_default_crates()
+        while game_running do 
+            Wait(1000)
+            game_timer = game_timer - 1
 
-        if game_timer < 1 then
-            break
+            if game_timer < 1 then
+                break
+            end
         end
+        
+        lobby = {}
+        countdown = 60
+        game_timer = 600
+        game_running = false
+        player_inventories= {}
+        crates_used = {}
+        kCleanUp()
     end
-    
-    lobby = {}
-    countdown = 60
-    game_timer = 600
-    game_running = false
-    player_inventories= {}
-    crates_used = {}
-    kCleanUp()
-
 end)
 
 RegisterNetEvent("PUBG:UseCrate")
