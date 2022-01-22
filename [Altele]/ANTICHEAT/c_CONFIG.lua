@@ -12,7 +12,7 @@ config.weapons = {
     "WEAPON_CROWBAR",
     -- "WEAPON_PISTOL",
     -- "WEAPON_COMBATPISTOL",
-    "WEAPON_APPISTOL",
+    -- "WEAPON_APPISTOL",
     -- "WEAPON_PISTOL50",
     -- "WEAPON_MICROSMG",
     -- "WEAPON_SMG",
