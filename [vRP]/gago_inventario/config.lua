@@ -91,6 +91,7 @@ items["wammo|WEAPON_FIREEXTINGUISHER"] = {"ammo",0 ,0 ,0 , "arme/WEAPON_FIREEXTI
 items["wammo|WEAPON_MICROSMG"] = {"ammo",0 ,0 ,0 , "munitie/munitiepistol.png"}
 items["wammo|WEAPON_SMG"] = {"ammo",0 ,0 ,0 , "munitie/munitiesmg.png"}
 items["wammo|WEAPON_ASSAULTSMG"] = {"ammo",0 ,0 ,0 , "munitie/munitiesmg.png"}
+items["wammo|WEAPON_MUSKET"] = {"ammo", 0, 0, 0 , "munitie/munitiesmg.png"}
 items["wammo|WEAPON_COMBATPDW"] = {"ammo",0 ,0 ,0 , "munitie/munitiesmg.png"}
 items["wammo|WEAPON_CARBINERIFLE"] = {"ammo",0 ,0 ,0 , "munitie/munitiesmg.png"}
 items["wammo|WEAPON_ASSAULTRIFLE"] = {"ammo",0 ,0 ,0 , "munitie/munitiesmg.png"}
