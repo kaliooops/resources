@@ -584,7 +584,7 @@ vRP.registerMenuBuilder({"admin", function(add, data)
   local user_id = vRP.getUserId({data.player})
   if user_id ~= nil then
     local choices = {}
-	if vRP.isUserHeadOfStaff({user_id}) or user_id == 69 then
+	if vRP.isUserHeadOfStaff({user_id}) then
 		choices["Blips"] = ch_blips
 	end
 	if vRP.isUserAdmin({user_id}) then

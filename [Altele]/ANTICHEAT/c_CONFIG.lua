@@ -92,7 +92,7 @@ config.weapons = {
     "WEAPON_COMBATPDW",
     "//Ill-Gotten",
     "WEAPON_MARKSMANPISTOL",
-    "WEAPON_KNUCKLE",
+    -- "WEAPON_KNUCKLE",
 }
 
 
