@@ -230,6 +230,13 @@ cfg.garage_types = {
 		["GODzMANURUS"] = {"LV Urus",0, ""},
 	},
 
+	["No Mercy"] = {
+		_config = {vtype="car", hasbuy = true, faction="Triadele", tosell=true, tosell = true, iconColor = {0,255,0}},
+		["lanex400"] = {"Mitsubishi Lancer X",0, ""},
+    	["rmodx6"] = {"BMW X6 Breithaus",0, ""},
+		["dominator"] = {"Mustang No Mercy",0, ""},
+	},
+
 
 	["Y.A.D"] = {
 		_config = {vtype="car", hasbuy = true, faction="Y.A.D", tosell=true, tosell = true, iconColor = {0,255,0}},
@@ -372,6 +379,7 @@ cfg.garages = {
 	-- {"Crips",-246.86389160156,492.12530517578,125.94523620605},
 	{"Personal", -1546.5185546875,888.16491699218,181.3410949707},
 	{"Y.A.D", -1146.9575195312,-1544.7224121094,4.3218159675598},
+	{"No Mercy", 693.12426757812,-1005.3084716796,22.889644622802},
 	{"Triadele", -670.97570800782,910.7855834961,230.29754638672},
 
 

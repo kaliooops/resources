@@ -98,6 +98,23 @@ cfg.market_types = {
     ["wammo|WEAPON_DOUBLEACTION"] = 3,
 },
 
+["Arme No Mercy"] = {
+  _config = {faction = "No Mercy"},
+  ["wbody|WEAPON_DAGGER"] = 100,
+  ["wbody|WEAPON_BAT"] = 60,
+  ["wbody|WEAPON_HATCHET"] = 60,
+  ["wbody|WEAPON_KNUCKLE"] = 30,
+  ["wbody|WEAPON_KNIFE"] = 50,
+  ["wbody|WEAPON_MACHETE"] = 100,
+  ["wbody|WEAPON_PISTOL50"] = 500,
+  ["wbody|WEAPON_SWITCHBLADE"] = 70,
+  ["wbody|WEAPON_MICROSMG"] = 1200,
+  ["wbody|WEAPON_SMG"] = 1500,
+  ["wammo|WEAPON_PISTOL50"] = 3,
+  ["wammo|WEAPON_MICROSMG"] = 4,
+  ["wammo|WEAPON_SMG"] = 4,
+},
+
 ["Arme Y.A.D"] = {
   _config = {faction = "Y.A.D"},
   ["wbody|WEAPON_DAGGER"] = 100,
@@ -113,6 +130,7 @@ cfg.market_types = {
   ["wammo|WEAPON_PISTOL50"] = 3,
   ["wammo|WEAPON_MICROSMG"] = 4,
   ["wammo|WEAPON_SMG"] = 4,
+  ["wbody|WEAPON_GUSENBERG"] = 2000,
 },
 
   ["Arme Groove"] = {
@@ -129,11 +147,8 @@ cfg.market_types = {
     ["wbody|WEAPON_PISTOL"] = 300,
     ["wbody|WEAPON_COMBATPISTOL"] = 400,
     ["wbody|WEAPON_SNSPISTOL"] = 200,
-    ["wbody|WEAPON_REVOLVER"] = 700,
     ["wbody|WEAPON_MICROSMG"] = 1200,
     ["wbody|WEAPON_SMG"] = 1500,
-    ["wbody|WEAPON_ASSAULTSMG"] = 2000, 
-    ["wbody|WEAPON_CARBINERIFLE"] = 3000,
     ["wbody|WEAPON_ASSAULTRIFLE"] = 4000,
     ["wbody|WEAPON_GUSENBERG"] = 2000,
     ["wammo|WEAPON_PISTOL"] = 1,
@@ -142,9 +157,6 @@ cfg.market_types = {
     ["wammo|WEAPON_SNSPISTOL"] = 1,
     ["wammo|WEAPON_MICROSMG"] = 4,
     ["wammo|WEAPON_SMG"] = 4,
-    ["wammo|WEAPON_ASSAULTSMG"] = 4,
-    ["wammo|WEAPON_REVOLVER"] = 4,
-    ["wammo|WEAPON_CARBINERIFLE"] = 5,
     ["wammo|WEAPON_ASSAULTRIFLE"] = 5,
   },
 
@@ -230,6 +242,7 @@ cfg.markets = {
   {"Arme Groove",84.986709594726,-1958.7644042968,21.121685028076},
   {"Arme KMN",-3022.5773925782,39.314754486084,10.117791175842},
   {"Arme Triade", -649.33575439454,853.76251220704,225.14744567872},
+  {"Arme No Mercy", 706.4619140625,-966.38098144532,30.412853240966},
 
   ---------Droage
   {"Cannabis",1521.5688476563,6331.1420898438,24.152729034424},
