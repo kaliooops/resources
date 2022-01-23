@@ -231,7 +231,7 @@ cfg.garage_types = {
 	},
 
 	["No Mercy"] = {
-		_config = {vtype="car", hasbuy = true, faction="Triadele", tosell=true, tosell = true, iconColor = {0,255,0}},
+		_config = {vtype="car", hasbuy = true, faction="No Mercy", tosell=true, tosell = true, iconColor = {0,255,0}},
 		["lanex400"] = {"Mitsubishi Lancer X",0, ""},
     	["rmodx6"] = {"BMW X6 Breithaus",0, ""},
 		["dominator"] = {"Mustang No Mercy",0, ""},
