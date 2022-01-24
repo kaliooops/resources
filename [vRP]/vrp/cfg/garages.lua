@@ -19,7 +19,11 @@ cfg.garage_types = {
 
 
   	["Civil"] = {
+<<<<<<< HEAD
 		_config = {vtype="car",blipid=357,blipcolor=64,blipcolor=2},
+=======
+		_config = {vtype="car",blipid=357,blipcolor=64,blipcolor=2},icon=36,iconColor={217,2,125},
+>>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
 		["ocnetrongt"] = {"Audi E-trone GT",60000, ""}, 
 		["aerox155"] = {"AeroX 155",230, ""}, 
 		["cliov6"] = {"Clio V6",230, ""}, 
@@ -230,6 +234,16 @@ cfg.garage_types = {
 		["GODzMANURUS"] = {"LV Urus",0, ""},
 	},
 
+<<<<<<< HEAD
+=======
+	["Bloods"] = {
+		_config = {vtype="car", hasbuy = true,icon=36, faction="Bloods", tosell=true, tosell = true, iconColor = {255,0,0}},
+		["lanex400"] = {"Mitsubishi Lancer X",0, ""},
+    	["rmodx6"] = {"BMW X6 Breithaus",0, ""},
+		["rmodgt63"] = {"AMG GT63",0, ""},
+	},
+
+>>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
 	["No Mercy"] = {
 		_config = {vtype="car", hasbuy = true, faction="No Mercy", tosell=true, tosell = true, iconColor = {0,255,0}},
 		["lanex400"] = {"Mitsubishi Lancer X",0, ""},
@@ -381,6 +395,10 @@ cfg.garages = {
 	{"Y.A.D", -1146.9575195312,-1544.7224121094,4.3218159675598},
 	{"No Mercy", 693.12426757812,-1005.3084716796,22.889644622802},
 	{"Triadele", -670.97570800782,910.7855834961,230.29754638672},
+<<<<<<< HEAD
+=======
+	{"Bloods", -1562.7171630859,-391.04425048828,41.981338500977},
+>>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
 
 
 	----Lege

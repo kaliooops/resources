@@ -637,7 +637,11 @@ vRP.registerMenuBuilder({"police", function(add, data)
 			choices["Radar"] = ch_radar
 
 		end
+<<<<<<< HEAD
 		if vRP.isUserInFaction({user_id,"Politia Romana"}) or vRP.isUserInFaction({user_id,"S.I.A.S"}) or vRP.isUserInFaction({user_id,"Y.A.D"}) or vRP.isUserInFaction({user_id,"SRI"}) or vRP.isUserInFaction({user_id,"Triadele"}) or vRP.isUserInFaction({user_id,"Groove Street"}) or vRP.isUserInFaction({user_id,"Crips Gang"}) or vRP.isUserInFaction({user_id,"KMN Gang"}) or vRP.isUserInFaction({user_id,"Mafia Albaneza"}) or vRP.isUserInFaction({user_id,"Mafia Siciliana"}) or vRP.isUserInFaction({user_id,"Sinaloa Cartel"}) or vRP.isUserInFaction({user_id,"Mafia Civila"}) or vRP.isUserInFaction({user_id,"La Famillia"}) or vRP.isUserInFaction({user_id,"Mafia Camorra"})  or vRP.isUserInFaction({user_id,"Mafia Ndrangheta"})  or vRP.isUserInFaction({user_id,"Mafia Yakuza"}) then
+=======
+		if vRP.isUserInFaction({user_id,"Politia Romana"}) or vRP.isUserInFaction({user_id,"S.I.A.S"}) or vRP.isUserInFaction({user_id,"Y.A.D"}) or vRP.isUserInFaction({user_id,"SRI"}) or vRP.isUserInFaction({user_id,"Triadele"}) or vRP.isUserInFaction({user_id,"Groove Street"}) or vRP.isUserInFaction({user_id,"Bloods"}) or vRP.isUserInFaction({user_id,"KMN Gang"}) or vRP.isUserInFaction({user_id,"Mafia Albaneza"}) or vRP.isUserInFaction({user_id,"Mafia Siciliana"}) or vRP.isUserInFaction({user_id,"Sinaloa Cartel"}) or vRP.isUserInFaction({user_id,"Mafia Civila"}) or vRP.isUserInFaction({user_id,"La Famillia"}) or vRP.isUserInFaction({user_id,"Mafia Camorra"})  or vRP.isUserInFaction({user_id,"Mafia Ndrangheta"})  or vRP.isUserInFaction({user_id,"Mafia Yakuza"}) then
+>>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
     		choices["Ridica"] = ch_drag
 		end
 		add(choices)

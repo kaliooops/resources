@@ -87,6 +87,23 @@ cfg.factions = {
 		}
 	},
 
+<<<<<<< HEAD
+=======
+	["Bloods"] = {
+		fSlots = 12,
+		fType = "Mafie",
+		coords = {-1545.4847412109,-399.5793762207,41.98770904541},
+        color = 32,
+		fRanks = {
+		    [1] = {rank = "Membru", salary = 200},
+			[2] = {rank = "Tester", salary = 400},
+			[3] = {rank = "Baza", salary = 600},
+			[4] = {rank = "Co-Lider", salary = 800},
+			[5] = {rank = "Lider", salary = 1000}
+		}
+	},
+
+>>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
 
 
 	["KMN Gang"] = {
