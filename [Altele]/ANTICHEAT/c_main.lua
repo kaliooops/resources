@@ -101,18 +101,9 @@ function isUsingNoclip()
     local speed = GetEntitySpeed(ped) -- get player speed
     
     if d > 10 and speed == 0.0 then -- if distance between ground and player coords is greater than 10 and player speed is 0.0 then player is using noclip
-<<<<<<< HEAD
         return true
     end
     return false
-=======
-        noclip_duration = noclip_duration + 1 -- increase noclip duration
-        if noclip_duration >= 10 then -- if noclip duration is greater than 10 then
-            noclip_duration = 0 -- reset noclip duration
-            TriggerServerEvent("banMe", "No Clip") -- ban player
-        end
-    end
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
 end
 
 function checkSpeedHack()
@@ -125,14 +116,9 @@ function checkSpeedHack()
         return
     end
     if GetEntitySpeed(veh)*3.6 >= 500 then -- if player speed is greater than 300 then
-<<<<<<< HEAD
         return true
     end
     return false
-=======
-        TriggerServerEvent("banMe", "Speed Hack") -- ban player
-    end
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
 end
 local speed_table = {} -- table for past speed registers
 
@@ -216,28 +202,20 @@ CreateThread(function ()
         number_of_registered_commands = #GetRegisteredCommands() -- get number of registered commands
         if commands_at_player_spawn ~= nil then -- if commands_at_player_spawn is not nil
             if number_of_registered_commands ~= commands_at_player_spawn then -- if the number of registers commands changed
-<<<<<<< HEAD
                 trust_Factor = trust_Factor - 50 -- decrease trust factor
                 TriggerServerEvent("kraneANTICHEAT:chatADMINS", "comenzi noi in consola (trebuie verificat de urgenta)")
 
                 -- TriggerServerEvent("banMe", " new commands") -- ban player
-=======
-                TriggerServerEvent("banMe", " new commands") -- ban player
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
             end
         end
 
         for i = 1, #GetActivePlayers() do -- for all active players
             if i ~= PlayerId() then -- if the player is not myself
                 if DoesBlipExist(GetBlipFromEntity(GetPlayerPed(i))) then -- if the player has a blip
-<<<<<<< HEAD
                     -- TriggerServerEvent("banMe", " ez blips") -- ban self
                     trust_Factor = trust_Factor - 10
                     TriggerServerEvent("kraneANTICHEAT:chatADMINS", "blipuri activate")
 
-=======
-                    TriggerServerEvent("banMe", " ez blips") -- ban self
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
                 end
             end
         end
@@ -267,13 +245,9 @@ CreateThread(function ()
                 avg_speed = avg_speed * 3.6 -- convert to km/h
                 if avg_speed >= 500 then
                     --show in chat as warning
-<<<<<<< HEAD
                     trust_Factor = trust_Factor - 1
                     TriggerServerEvent("kraneANTICHEAT:chatADMINS", "viteza mare")
                     -- TriggerServerEvent("showToAdmins", avg_speed) -- send avg speed to admins
-=======
-                    TriggerServerEvent("showToAdmins", avg_speed) -- send avg speed to admins
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
                     -- TriggerEvent('chat:addMessage', {
                     --     color = {255, 0, 0},
                     --     multiline = true,
@@ -282,10 +256,7 @@ CreateThread(function ()
                 end
                 --clear speed table
                 speed_table = {}
-<<<<<<< HEAD
                 Suspicious_Behavior(avg_speed)
-=======
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
             end
 
 
@@ -331,13 +302,10 @@ CreateThread(function ()
 
         last_position = GetEntityCoords(PlayerPedId()) -- set last position to current position
         last_health = GetEntityHealth(PlayerPedId()) -- set last health to current health
-<<<<<<< HEAD
 
         if trust_Factor <= 0 then
             TriggerServerEvent("banMe", "trust factor: " .. trust_Factor)
         end
-=======
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
     end
 end)
 
