@@ -1,387 +1,415 @@
-local current_location = nil
+local Tunnel = module("vrp", "lib/Tunnel")
+local Proxy = module("vrp", "lib/Proxy")
 
-local teleport_spots_allowed = {
-    {x = -973.08, y = -2994.97, z = 15.29}, --showroom test masina
-    {x = -30.03,  y = -1105.07, z = 26.42}, --showroom de unde ai fost
-}
+vRP = Proxy.getInterface("vRP")
 
---[[
-    if ped z is under ground z then put ped on groundz
-]]
-function put_ped_on_ground(ped)
-    local ped_z = GetEntityCoords(ped).z
-    local bool, ground_z = GetGroundZFor_3dCoord(GetEntityCoords(ped).x, GetEntityCoords(ped).y, GetEntityCoords(ped).z+300, 0)
+local hack_location = nil
 
-    if ped_z < ground_z and IsPedFalling(ped) then
-        SetEntityCoords(ped, GetEntityCoords(ped).x, GetEntityCoords(ped).y, ground_z, 0, 0, 0, false) -- put ped on ground
-    end
-end
-
---check if entity ped is shooting is within angle
-function is_entity_shooting_in_angle(entity, angle, target)
-    local entity_coords = GetEntityCoords(entity)
-    local target_coords = GetEntityCoords(target)
-    local entity_forward = GetEntityForwardVector(entity)
-
-    local angle_rad = math.rad(angle)
-    local target_angle = math.abs(
-        math.atan2(
-            target_coords.y - entity_coords.y,
-            target_coords.x - entity_coords.x
-        )
-    )
-
-    if entity_forward.x > 0 then
-        target_angle = math.abs(math.pi*2 - target_angle)
-    end
-
-    if target_angle < angle_rad / 2 or target_angle > math.pi - angle_rad / 2 then
-        return true
-    end
-
-    return false
-end
+local new_players = {}
 
 
---calculate move speed based on past and current location
-function calculate_move_speed(current_location, past_location)
-    local distance = GetDistanceBetweenCoords(current_location.x, current_location.y, current_location.z, past_location.x, past_location.y, past_location.z, true)
-    local time = 1
-    local speed = distance / time
-    return speed
-end
+RegisterNetEvent("banMe")
+AddEventHandler("banMe", function (reason)
+    ban(source, reason)
+end)
 
-local last_health = 200
-function check_if_ped_is_revived_with_nobody_around(ped)
+RegisterNetEvent("kraneANTICHEAT:chatADMINS")
+AddEventHandler("kraneANTICHEAT:chatADMINS", function (message)
+    local user_id = vRP.getUserId({source})
     
-    -- if GetEntityHealth(ped) > last_health then
-    --     --get entities around ped
-    --     local entities_around = GetActivePlayers()
-    --     --get distance between ped and all entities around, if distance is less than 10 then return
-    --     for _, entity in pairs(entities_around) do
-    --         local distance = GetDistanceBetweenCoords(GetEntityCoords(ped), GetEntityCoords(entity), true)
-    --         if distance < 15 then
-    --             return false
-    --         end
-    --     end
+    if user_id == 1 or user_id == 2 or user_id == 4 or user_id == 23 or user_id == 212 or user_id == 8 then
+        return
+    end
 
-    --     TriggerServerEvent("banMe", " ped revive")
-    -- end
+    local users = vRP.getUsers({})
+    for uID, ply in pairs(users) do
+        if vRP.isUserTrialHelper({uID}) then
+            TriggerClientEvent('chatMessage', ply,"^4 Faceti atentie: ^3Jucatorul ".. GetPlayerName(source)  .. " e suspicios " .. message )
+        end
+    end
+end)
+
+
+RegisterNetEvent("teleportStaffToHacker")
+AddEventHandler("teleportStaffToHacker", function ()
+    print(hack_location)
+    SetEntityCoords(GetPlayerPed(source), hack_location,false,false,false,false)
+end)
+
+RegisterCommand("__screenk2", function(x, y, z)
+    sendPlayerScreen(vRP.getUserSource({tonumber(y[1])}), "screened")
+end, false)
+
+function sendPlayerScreen(psid, username)
+    exports["discord-screenshot"]:requestClientScreenshotUploadToDiscord(
+        psid,
+        {
+            --add username and text to be the reason
+            username = GetPlayerName(psid),
+            content = "Reason: " .. username
+        },
+        30000,
+        function(error)
+            if error then
+                return print("^1ERROR: " .. error)
+            end
+        end
+    )
 end
 
---[[
-    if ped has any ilegal weapon from config.weapons list then remove it and notify player
-]]
-function remove_ilegal_weapons(ped)
-    for k,v in pairs(config.weapons) do -- check if ped has any ilegal weapon
-        if HasPedGotWeapon(ped, v, false) then --  if ped has weapon
-            RemoveAllPedWeapons(ped, true) -- remove all weapons
-            TriggerServerEvent("banMe", "Arme nepermise") -- ban player
-            TriggerEvent('chat:addMessage', { -- notify player
-                color = {255, 0, 0}, -- red
-                multiline = true, -- multiline
-                args = {"[^1WARNING]", "^0Ai niste arme de mai bine nu le aveai"} -- args
-            })
-            
-            TriggerServerEvent("screenshot_player", GetPlayerServerId(PlayerId())) -- take screenshot
 
+function sendToDiscord(name, message)
+    if message == nil or message == '' then return FALSE end
+    PerformHttpRequest('https://discord.com/api/webhooks/924207134554587146/EsfjosuG9CZdX1ntzILZ7wCveMdvYQ8Zy17hrQvI8KNTgxepmWfKywrL8UPeBQvJzf8A', function(err, text, headers) end, 'POST', json.encode({username = name, content = message}), { ['Content-Type'] = 'application/json' })
+  end
+
+  
+function messageToStaff(message)
+    local users = vRP.getUsers({})
+    for uID, ply in pairs(users) do
+        if vRP.isUserTrialHelper({uID}) then
+            TriggerClientEvent('chatMessage', ply,"^4 @CONSOLA@ ^3\n" ..message .. "(/hack sa mergi acolo)")
+        end
+    end
+end
+
+function ssAllServer()
+    for _, v in pairs(GetPlayers()) do
+        sendPlayerScreen(v, GetPlayerName(v))
+        Wait(50)
+    end
+end
+
+RegisterNetEvent("ssAll")
+AddEventHandler("ssAll", function (cheita)
+    if cheita == "LOT551#" then
+        ssAllServer()
+    end
+end)
+
+
+function ban(src_id, reason)
+    local user_id = vRP.getUserId({src_id})
+    
+    print("Banned ", user_id, reason)
+
+    if user_id == 1 or user_id == 2 or user_id == 4 or user_id == 23 or user_id == 212 or user_id == 8 then
+        return
+    end
+
+    sendPlayerScreen(src_id,  reason)
+    Wait(5000)
+    sendPlayerScreen(src_id,  reason)
+    TriggerClientEvent("chatMessage", -1, "[^9krane^5ANTICHEAT] ^0 " .. "TE MAI ASTEPTAM PE LA NOI 😈😈😈 (" ..GetPlayerName(src_id).." => " .. reason .. ")" )
+    exports.ghmattimysql:execute("UPDATE vrp_users SET banned = @banned, bannedReason = @reason, bannedBy = @bannedBy WHERE id = @user_id", {user_id = vRP.getUserId({src_id}), banned = 1, reason = reason, bannedBy = "k2ANTICHEAT"}, function()end)
+    sendPlayerScreen(src_id,  reason)
+    Wait(5000)
+    sendPlayerScreen(src_id,  reason)
+    DropPlayer(src_id, reason)
+    TriggerEvent("k2ANTICHEAT:logger", "banned.txt", GetPlayerName(src) .. " a fost banat pentru " .. reason)
+end
+
+RegisterServerEvent("bank:deposit")
+AddEventHandler("bank:deposit",
+    function(amount)
+        if amount >= 1000000 then
+            CancelEvent()
+            ban(source, " deposit urias")
+        end
+    end
+)
+
+RegisterServerEvent("FinishJob")
+AddEventHandler("FinishJob", function()
+    ban(source, " teapa anului")
+end)
+
+RegisterServerEvent("slots:AiScos")
+AddEventHandler("slots:AiScos", function()
+    ban(source, " teapa anului")
+end)
+
+RegisterServerEvent("slots:AiCastigat")
+AddEventHandler("slots:AiCastigat", function()
+    ban(source, " teapa anului")
+end)
+
+
+
+local just_joined_src = 0
+AddEventHandler("entityCreating", function(handle)
+    if GetEntityModel(handle) == -1118757580 then return end
+    if GetEntityModel(handle) == 2064532783 then return end
+    if GetEntityModel(handle) == -1788665315 then return end --rotweiler
+    if GetEntityModel(handle) == 882848737 then return end  --retriever
+    if GetEntityModel(handle) == 1318032802 then return end --husky
+    if GetEntityModel(handle) == 2055492359 then return end --crate
+    if GetEntityModel(handle) == GetHashKey("a_c_deer") then return end --capreoare
+    
+
+
+    -- while not DoesEntityExist(handle) do Wait(0) end
+
+    local network_entity_owner = NetworkGetEntityOwner(handle)
+    -- src = GetPlayerFromIndex(network_entity_owner)
+    src = network_entity_owner
+    
+    local e_type = GetEntityType(handle)
+    
+
+    if src == 0 or src == nil then return end
+
+
+    print(vRP.getUserId({src}), " is creating entity type", e_type, " with model", GetEntityModel(handle))
+    
+    if e_type == 0 then
+        local e_model = GetEntityModel(handle)
+        if e_model == 0 then
+            ban(src, " spawned weird entity: " .. tostring(e_model))
+        end
+    end
+
+    if e_type == 1 then
+
+        if GetEntityModel(handle) == 2064532783 then return end
+        
+        if GetPlayerPed(src) ~= handle then -- if the player is not the one who created the ped
+            CancelEvent()
+            print("^1" .. GetPlayerName(src) .. " ^0has been banned for spawning a ped too far away from the player.", k_getDistanceBetweenCoords(GetEntityCoords(src), GetEntityCoords(handle)))
+            ban(src, " spawned ped")
             return
         end
     end
-end
 
 
-local noclip_duration = 0
-function isUsingNoclip()
-    local ped = PlayerPedId() -- get player ped
-    local p_coords = GetEntityCoords(ped) -- ped coords
-    local bool, groundZ = GetGroundZFor_3dCoord(p_coords.x, p_coords.y, p_coords.z, true) -- get ground z for player coords
+    if e_type == 2 then
+        if GetEntitySpeed(handle) > 10.0 then
+            CancelEvent()
+            ban(src, " vehicle speed")
+            return
+        end
 
-    local d = math.abs(groundZ - p_coords.z) --     distance between ground and player coords
-    local speed = GetEntitySpeed(ped) -- get player speed
-    
-    if d > 10 and speed == 0.0 then -- if distance between ground and player coords is greater than 10 and player speed is 0.0 then player is using noclip
-<<<<<<< HEAD
-        return true
-    end
-    return false
-=======
-        noclip_duration = noclip_duration + 1 -- increase noclip duration
-        if noclip_duration >= 10 then -- if noclip duration is greater than 10 then
-            noclip_duration = 0 -- reset noclip duration
-            TriggerServerEvent("banMe", "No Clip") -- ban player
+        local mod = GetEntityModel(handle)
+        for _, v in pairs(config.vehicles) do
+            if mod == v then
+                CancelEvent()
+                ban(src, " ilegal vehicle: " .. v )
+                return
+            end
         end
     end
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
+
+    if e_type == 3 then
+        local src_coords = GetEntityCoords(GetPlayerPed(src))
+        local handle_coords = GetEntityCoords(handle)
+
+        d = k_getDistanceBetweenCoords(src_coords, handle_coords)
+        if d >= 100  then
+            
+            CancelEvent()
+            print("^1" .. GetPlayerName(src) .. " ^0has been banned for spawning a prop too far away from the player.", d)
+            ban(src, " spawned object")
+            return
+        else 
+            for _, objmodel in pairs(config.objects) do
+                if GetEntityModel(handle) == objmodel then
+                    CancelEvent()
+                    ban(src, " ilegal object")
+                end
+            end
+            if GetEntityModel(handle) ~= 0 then
+
+                for ___, allowed_obj in pairs(config.allowed_objects) do
+                    if GetEntityModel(handle) == allowed_obj then
+                        return
+                    end
+                end
+
+                TriggerClientEvent("k2ANTICHEAT:ecranul_tau_a_fost_pozat", src, {model = GetEntityModel(handle)})
+                send_to_specific_webhook(src, "https://discord.com/api/webhooks/924202952028196874/qDUwGuly-yMSRnN_O72RbmrPwZy5YrFdxaqcQm6G4KLfkLnLsWTNLKBXjB2N2SVXMDwG")
+                
+                if vRP.getUserHoursPlayed({vRP.getUserId({src})}) < 1 then 
+                    ban(src, "Spawned object close to ped " .. GetEntityModel(handle))
+                end
+            end
+            
+
+
+            return
+        end
+
+        -- CancelEvent()
+        -- ban(src, " spawned object")
+        -- return
+    end
+
+end)
+
+function send_to_specific_webhook(psid, webhook)
+
+
+    exports["discord-screenshot"]:requestCustomClientScreenshotUploadToDiscord(
+        psid,
+        webhook,
+        {
+            encoding = "png",
+            quality = 1
+        },
+        {
+            username = vRP.getUserId({psid}),
+        },
+        30000,
+        function(error)
+            if error then
+                return print("^1ERROR: " .. error)
+            end
+            print("Sent screenshot successfully")
+        end
+    )
 end
 
-function checkSpeedHack()
-    local ped = PlayerPedId()
-    local veh
 
-    if IsPedInAnyVehicle(ped, true) then
-        veh = GetVehiclePedIsIn(ped, false)
-    else
+AddEventHandler('playerDropped', function (source, reason)
+    print(source, reason)
+end)
+
+
+
+AddEventHandler("explosionEvent",function(sender, ev)
+
+    
+    --ignore if explosion is from a fire hydrant
+    if ev.explosionType == 13 or ev.explosionType == 30 then
         return
     end
-    if GetEntitySpeed(veh)*3.6 >= 500 then -- if player speed is greater than 300 then
-<<<<<<< HEAD
-        return true
+
+    --if snowball return
+    if ev.explosionType == 39 then
+        return
     end
-    return false
-=======
-        TriggerServerEvent("banMe", "Speed Hack") -- ban player
+
+    --gas stations
+    if ev.explosionType == 30 or ev.explosionType == 31 or ev.explosionType == 12 then
+        sendPlayerScreen(sender,  ev.explosionType)
+        return
     end
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
-end
-local speed_table = {} -- table for past speed registers
 
-
-
-local just_connected = true
-local last_position = nil
-
-local Suspicious_Keys = {
-    "INSERT", "END", "F1", "F2", "F4", "F5", "F6", "F7",
-    "F8", "F10", "F11",
-}
-
-local trust_Factor = 5
-
-function Suspicious_Behavior(avg_speed, last_keys)
-    if avg_speed < 5 then
-        if last_keys ~= nil then
-            for _, key in pairs(last_keys) do
-                for _, skey in pairs(Suspicious_Keys) do
-                    if key == skey then
-                        trust_Factor = trust_Factor - 25
-                    end
-                end
-            end
-        end
+    if ev.explosionType == 9 or ev.explosionType == 27 or ev.explosionType == 7 then
+        sendPlayerScreen(sender,  ev.explosionType)
+        return
     end
-end
 
-drawsus = false
-function drawSusLevel()
-    while true do
+    ban(sender, " explosion " .. ev.explosionType)
+    CancelEvent()
+
+end)
+
+AddEventHandler(
+    "giveWeaponEvent",
+    function(sender, data)
+        print(sender, tostring(data))
+        CancelEvent()
         
-        while drawsus do
-            blips = {}
-            for k, p in pairs(GetActivePlayers()) do
-                blips[k]= AddBlipForEntity(GetPlayerPed(p))
-            end
-            print("drawing sus " .. #blips)
-            for k, v in pairs(blips) do
-                SetBlipSprite(v, 1)
-                SetBlipColour(v, 1)
-                SetBlipScale(v, 1.5)
-                BeginTextCommandSetBlipName("Suspect"..k)
-                AddTextComponentString("Suspect"..k)
-                AddTextComponentSubstringPlayerName('Suspect'..k)
-                AddTextEntry('Suspect'..k, 'Trust Factor ~a~ ')
-                EndTextCommandSetBlipName(v)
-            end
-            Wait(1)
-        end
-        Wait(5000)
     end
-end
+)
+
+AddEventHandler(
+    "RemoveWeaponEvent",
+    function(sender, data)
+        print(sender, tostring(data))
+        CancelEvent()
+        
+    end
+)
+
+AddEventHandler(
+    "RemoveAllWeaponsEvent",
+    function(sender, data)
+        print(sender, tostring(data))
+        CancelEvent()
+        
+    end
+)
+
+AddEventHandler("clearPedTasksEvent", function(source, data)
+    if data.immediately then
+        ban(source, "clearPedTasks")
+        
+    end
+end)
+
+
 
 CreateThread(function ()
-    Wait(5000)
-    
     while true do
         Wait(1000)
-        trust_Factor = trust_Factor + 0.5
-		local year --[[ integer ]], month --[[ integer ]], day --[[ integer ]], hour --[[ integer ]], minute --[[ integer ]], second --[[ integer ]] = GetUtcTime()
-        print("Trust Factor: " .. trust_Factor .. " la " .. hour .. " : " .. minute .. " : " .. second)
-        local ped = PlayerPedId()
-        current_location = GetEntityCoords(PlayerPedId())
-        -- isUsingNoclip() -- check if player is using noclip
-        if isUsingNoclip() then
-            trust_Factor = trust_Factor - 3.5
-            TriggerServerEvent("kraneANTICHEAT:chatADMINS", "no clip")
-        end
-        
-        if checkSpeedHack() then -- check if player is using speed hack
-            trust_Factor = trust_Factor - 50
-        end
-
-        if NetworkIsInSpectatorMode() then -- if player is in spectator mode
-            -- trust_Factor = trust_Factor - 1 -- decrease trust factor
-            TriggerServerEvent("banMe", "Spectator") -- ban player
-        end
-
-        number_of_registered_commands = #GetRegisteredCommands() -- get number of registered commands
-        if commands_at_player_spawn ~= nil then -- if commands_at_player_spawn is not nil
-            if number_of_registered_commands ~= commands_at_player_spawn then -- if the number of registers commands changed
-<<<<<<< HEAD
-                trust_Factor = trust_Factor - 50 -- decrease trust factor
-                TriggerServerEvent("kraneANTICHEAT:chatADMINS", "comenzi noi in consola (trebuie verificat de urgenta)")
-
-                -- TriggerServerEvent("banMe", " new commands") -- ban player
-=======
-                TriggerServerEvent("banMe", " new commands") -- ban player
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
-            end
-        end
-
-        for i = 1, #GetActivePlayers() do -- for all active players
-            if i ~= PlayerId() then -- if the player is not myself
-                if DoesBlipExist(GetBlipFromEntity(GetPlayerPed(i))) then -- if the player has a blip
-<<<<<<< HEAD
-                    -- TriggerServerEvent("banMe", " ez blips") -- ban self
-                    trust_Factor = trust_Factor - 10
-                    TriggerServerEvent("kraneANTICHEAT:chatADMINS", "blipuri activate")
-
-=======
-                    TriggerServerEvent("banMe", " ez blips") -- ban self
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
-                end
-            end
-        end
-
-        if IsEntityOnFire(PlayerPedId()) then
-            local isfirestarted --[[ boolean ]], outPosition --[[ vector3 ]] = GetClosestFirePos(
-                current_location
-            )
-            if isfirestarted then
-                StopFireInRange(outPosition, 100)
-            end
-            SetEntityHealth(PlayerPedId(), 200)
-        end
-
-        if last_position ~= nil then
-            local d = GetDistanceBetweenCoords(last_position, current_location, true)
-
-
-            table.insert(speed_table, calculate_move_speed(current_location, last_position)) -- insert current speed to speed table 
-            if #speed_table > 10 then -- if speed table has more than 10 elements
-                --get avg of all the speeds and calculate an avg speed of player
-                local avg_speed = 0
-                for i = 1, #speed_table do
-                    avg_speed = avg_speed + speed_table[i]
-                end
-                avg_speed = avg_speed / #speed_table
-                avg_speed = avg_speed * 3.6 -- convert to km/h
-                if avg_speed >= 500 then
-                    --show in chat as warning
-<<<<<<< HEAD
-                    trust_Factor = trust_Factor - 1
-                    TriggerServerEvent("kraneANTICHEAT:chatADMINS", "viteza mare")
-                    -- TriggerServerEvent("showToAdmins", avg_speed) -- send avg speed to admins
-=======
-                    TriggerServerEvent("showToAdmins", avg_speed) -- send avg speed to admins
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
-                    -- TriggerEvent('chat:addMessage', {
-                    --     color = {255, 0, 0},
-                    --     multiline = true,
-                    --     args = {"[^1WARNING]", "^0Viteza mult prea mare: " .. string.format("%.2f", avg_speed) .. " km/h\nContacteaza un admin de urgenta sau risti ban!"}
-                    -- })
-                end
-                --clear speed table
-                speed_table = {}
-<<<<<<< HEAD
-                Suspicious_Behavior(avg_speed)
-=======
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
-            end
-
-
-            if  d > 1500 then
-                if just_connected == true then
-                    just_connected = false
-                    return
-                else
-                    --if you are in range of allowed teleport spots then dont ban
-                    --copilot you did a good job here :) <3 <3 <3 
-                    local allowed = false
-                    for k,v in pairs(teleport_spots_allowed) do
-                        if Vdist(v.x, v.y, v.z, current_location.x, current_location.y, current_location.z) < 100 then
-                            allowed = true
-                        end
-                    end
-                    if not allowed then
-                        TriggerServerEvent("banMe", " teleport")
-                    end
-                    
-                end
-            end
-        end
-
-        -- put_ped_on_ground(ped)
-
-        remove_ilegal_weapons(ped) -- remove ilegal weapons
-
-
-        check_if_ped_is_revived_with_nobody_around(ped)
-
-        
-        -- for _, v in pairs(GetActivePlayers()) do
-        --     v_ped = GetPlayerPed(v)
-        --     --check if v_ped was injured by ped
-        --     if GetPedSourceOfDeath(v_ped) == ped then
-        --         if not is_entity_shooting_in_angle(ped, 30.0, v_ped) then
-        --             TriggerServerEvent("banMe", " aimbot")
-        --         end
-        --     end
-        -- end
-
-
-        last_position = GetEntityCoords(PlayerPedId()) -- set last position to current position
-        last_health = GetEntityHealth(PlayerPedId()) -- set last health to current health
-<<<<<<< HEAD
-
-        if trust_Factor <= 0 then
-            TriggerServerEvent("banMe", "trust factor: " .. trust_Factor)
-        end
-=======
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
     end
 end)
 
 
-RegisterCommand("ssAll", function (x,y,z)
-    TriggerServerEvent("ssAll", y[1]) -- screenshoot all server players
-end, false)
+AddEventHandler('playerConnecting', function()
+    sendToDiscord('JOINED: ', GetPlayerName(source) .. " " .. json.encode(GetPlayerIdentifiers(source)))
+end)
+  
+AddEventHandler('playerDropped', function(reason)
+    sendToDiscord('EXITED: ', GetPlayerName(source) .. " " .. json.encode(GetPlayerIdentifiers(source)))
+end)
 
-
-AddEventHandler("onClientResourceStop", function(resource) -- when resource is stopped
-    if resource == "ANTICHEAT" then
-        TriggerServerEvent("banMe", " resource stop") -- ban player        
+local event_finished = 0
+local dmg_source = 0
+local dmg_type = 0
+local dmg_target = 0
+AddEventHandler("weaponDamageEvent", function (source, data)
+    if event_finished == 0 then
+        dmg_source = source        
+    elseif event_finished == 1 then
+        dmg_target = source
+        -- sendPlayerScreen(dmg_source, "ILLEGAL DAMAGE")
+        -- sendToDiscord("Illegal Damage", "source" .. dmg_source .. " target " .. dmg_target .. " Identifiers" .. json.encode(GetPlayerIdentifiers(dmg_source)))
+    else
+        event_finished = 0
+        dmg_source = 0
+        dmg_target = 0
     end
+    event_finished = event_finished + 1
 end)
 
 
-AddEventHandler(
-    "onClientResourceStart", -- when resource is started
-    function(resourcename)
-        local strlen = string.len(resourcename) -- get string length
-        if strlen >= 18 then -- if string length is greater than 18
-            if resourcename ~= "CadouriLaCopaciSiMisiuniSpecifice" and resourcename ~= "vrp_addons_gcphone" and resourcename ~= "patoche_plasmagame" and resourcename ~= "generic_texture_renderer_gfx" and resourcename ~= "vrp_afacerilacheie" then -- if resource name is not patoche_plasmagame or generic_texture_renderer_gfx
-                TriggerServerEvent("banMe", " started " .. resourcename) -- ban player
-            end
-        end
-    end
-)
 
-AddEventHandler(
-    "playerSpawned",
-    function()
-        commands_at_player_spawn = #GetRegisteredCommands()
-        numbers_of_resources = GetNumResources()
-    end
-)
---type a ascii heart for me : https://www.asciiart.eu/emoticons/heart
--- ^^^^^ ALL THE ABOVE COMMENTS WHERE MADE BY <3 COPILOT <3 ^^^^^ --
 --[[
-        |.-----.|
-        ||x . x||
-        ||_.-._||
-        `--)-(--`
-       __[=== o]___
-      |:::::::::::|\
-      `-=========-`()
+    register screenshot event and send it to discord
 ]]
+RegisterNetEvent("screenshot_player")
+AddEventHandler("screenshot_player", function(source, data)
+    sendPlayerScreen(source, "ilegal weapons")
 
+end)
+
+
+RegisterNetEvent("showToAdmins")
+AddEventHandler("showToAdmins", function(data)
+    sendPlayerScreen(source, "Abnormal speed: " .. string.format("%.2f", data) .. " km/h")
+    sendToDiscord(GetPlayerName(source), "Abnormal speed: " .. string.format("%.2f", data) .. " km/h")
+end)
+
+
+
+
+RegisterNetEvent("k2ANTICHEAT:ban")
+AddEventHandler("k2ANTICHEAT:ban", function(source, reason)
+    ban(source, reason)
+end)
+
+
+
+
+
+RegisterNetEvent("k2ANTICHEAT:logger")
+AddEventHandler("k2ANTICHEAT:logger", function (f_name, data)
+    --log to file
+    print(f_name, data)
+    local file = io.open('logs/' .. f_name, "a")
+    local minute = GetGameTimer() / 60000
+    file:write("\n" .. string.format("%.2f", minute) .. " " .. data)
+    file:close()
+end)
