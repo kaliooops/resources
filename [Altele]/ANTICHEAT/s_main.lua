@@ -11,22 +11,7 @@ local new_players = {}
 RegisterNetEvent("banMe")
 AddEventHandler("banMe", function (reason)
     ban(source, reason)
-end)
 
-RegisterNetEvent("kraneANTICHEAT:chatADMINS")
-AddEventHandler("kraneANTICHEAT:chatADMINS", function (message)
-    local user_id = vRP.getUserId({source})
-    
-    if user_id == 1 or user_id == 2 or user_id == 4 or user_id == 23 or user_id == 212 or user_id == 8 then
-        return
-    end
-
-    local users = vRP.getUsers({})
-    for uID, ply in pairs(users) do
-        if vRP.isUserTrialHelper({uID}) then
-            TriggerClientEvent('chatMessage', ply,"^4 Faceti atentie: ^3Jucatorul ".. GetPlayerName(source)  .. " e suspicios " .. message )
-        end
-    end
 end)
 
 
