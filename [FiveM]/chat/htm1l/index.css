@@ -1,0 +1,157 @@
+.color-0{color: #ffffff;}
+.color-1{color: #cd5c5c;} /* ROSU */
+.color-2{color: #99cc00;}
+.color-3{color: rgb(0, 166, 255);} 
+.color-4{color: #ffe033;}
+.color-5{color: #33b5e5;}
+.color-6{color: #aa66cc;}
+.color-7{color: #ff8e24;}
+.color-8{color: #cc0000;}
+.color-9{animation: rainbow 4s linear infinite;}
+
+
+@keyframes textclip {
+    to {background-position: 200% center;}
+}
+
+@keyframes rainbow {
+  from { color: #8f00ff; }
+  15% { color: #a34de2; }
+  30% { color: #ff7f00; }
+  45% { color: #00ff00; }
+  60% { color: #ffff00; }
+  75% { color: #ff7f00; }
+  90% { color: #ff0000; }
+  to { color: #8f00ff; }
+}
+
+@font-face {
+  font-family: 'Font2'; 
+  src: url('font2.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100&display=swap');
+
+* {
+/*font-family: 'Font2';*/
+font-family: Font2;
+margin: 0;
+padding: 0;
+}
+
+.no-grow {
+flex-grow: 0;
+}
+
+em {
+font-style: normal;
+}
+
+#app {
+font-family: Font2;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+color: white;
+}
+
+.chat-window {
+position: absolute;
+top: 15px;
+left: 15px;
+width: 43%;
+height: 400px;
+
+background-color: rgba(0, 0, 0, 0.0);
+-webkit-animation-duration: 2s;
+}
+
+
+.chat-messages {
+position: relative;
+height: 120%;
+font-size: 16px;
+margin: 15px;
+left: -18px;
+text-shadow: 1.5px 1px #000000;
+line-height: 90%;
+font-weight: lighter;
+animation: fadein 0.9s;
+
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.chat-input {
+font-size: 1.2rem;
+position: absolute;
+animation: fadein 0.2s;
+
+top: 330px;
+left: 15px;
+width: 38%;
+
+box-sizing: border-box;
+}
+
+.prefix {
+position: absolute;
+margin-top: 2px;
+left: 4px;
+}
+
+textarea {
+font-size: 1.1rem;
+display: block;
+box-sizing: border-box;
+padding: 5px;
+padding-left: 27px;
+color: white;
+background-color: rgba(0, 0, 0, 0.0);
+width: 100%;
+border-width: 0;
+height: 34px;
+overflow: hidden;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+.msg {
+margin-bottom: 3px;
+animation: fadein 0.5s;
+}
+
+.multiline {
+margin-left: 1.5rem;
+text-indent: -1.5rem;
+white-space: pre-line;
+}
+
+.suggestions {
+list-style-type: none;
+padding: 5px;
+padding-left: 27px;
+font-size: 1.1rem;
+box-sizing: border-box;
+color: white;
+background-color: rgba(0, 0, 0, 0.0);
+width: 100%;
+}
+
+.help {
+color: #b0bbbd;
+}
+
+.disabled {
+color: #b0bbbd;
+}
+
+.suggestion {
+margin-bottom: 5px;
+}

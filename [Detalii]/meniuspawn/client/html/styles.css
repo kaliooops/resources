@@ -1,0 +1,300 @@
+:root { 
+  --primary-color: #2980b9; 
+  --secondary-color: #1d699c; 
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+@keyframes logo_rot {
+	0% {
+		transform: rotate(0deg)
+	}
+	50% {
+		transform: rotate(10deg)
+	}
+	100% {
+		transform: rotate(0deg)
+	}
+}
+
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px #b8b8b8; */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html {
+  overflow: hidden;
+  font-family: monospace;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.full-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 1200px;
+  height: 650px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  background-image: url("https://i.ibb.co/NKXTGRq/Untitled-1.png");
+  box-shadow: 0 10px 0 0 var(--primary-color) inset;
+  color: #000000;
+	border-radius: px;
+	display: none;
+  -webkit-text-stroke:0.3px rgb(0, 0, 0);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btnClose {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  color: var(--primary-color);
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.btnClose:hover {
+  color: var(--secondary-color);
+}
+
+.title {
+  position: absolute;
+  left: 450px;
+  top: 78px;
+  margin: 0;
+  display: inline-block;
+	font-size: 35px;
+	line-height: 50px;
+	color: #fff;
+	background-color: rgba(12, 199, 196);
+	border-radius: 3px;
+	padding: 5px 5px 3px 5px;
+}
+
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: var(--primary-color);
+}
+
+p {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+
+.logo {
+	position: absolute;
+	top: -75px;
+  left: -50px;
+  -webkit-transform:rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+}
+
+.logo img {
+	width: 150px;
+	opacity: 1;
+	transition: 0.2s all;
+}
+
+.logo img:hover {
+	animation: logo_rot 1s linear infinite;
+}
+
+.scrollbox {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 1100px;
+  height: 470px;
+}
+
+#home, #showJobs, #jobSelection {
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 1100px;
+  height: 500px;
+  margin-top: 70px;
+  margin-left: 50px;
+}
+
+#home h2 {
+  text-align: center;
+  margin-top: 200px;
+  font-weight: normal;
+}
+
+#home h2 span {
+  color: var(--primary-color);
+}
+
+#home p {
+  text-align: center;
+}
+
+.btnNext {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 22px;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 30px 475px;
+}
+
+.btnNext span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btnNext span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btnNext:hover span {
+  padding-right: 25px;
+}
+
+.btnNext:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#showJobs h5 {
+  font-weight: normal;
+  font-size: 16px;
+  margin-left:  1.5%;
+}
+
+.jobs-list div {
+  background-color: #ededed;
+  width: 30.3%;
+  margin: 10px 1.5%;
+  height: 150px;
+}
+
+.jobs-list div h3 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+  padding: 0 15px;
+}
+
+.jobs-list div p {
+  text-align: center;
+  font-weight: normal;
+  padding: 0 15px;
+  color: #444444;
+}
+
+.jobHeader {
+  margin-bottom: 20px;
+}
+
+.jobTitle {
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
+.jobIcon {
+  height: 50px;
+  width: 50px;
+}
+
+.jobButtons {
+  margin-top: 40px;
+}
+
+.jobButtons button {
+  border: none;
+  outline: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+}
+
+.jobButtons button:hover {
+  background-color: var(--secondary-color);
+}
+
+.jobButtons button:disabled {
+  background-color: #414141;
+}
+
+.scrollToBottom {
+  margin-top: 0px;
+  border: none;
+  outline: none;
+  color: #a3a3a3;
+  background-color: transparent;
+  text-align: center;
+}
+
+.scrollToBottom:hover {
+  color: #747474;
+}
+
+
+.anteturi { 
+  text-align: center;
+  
+}

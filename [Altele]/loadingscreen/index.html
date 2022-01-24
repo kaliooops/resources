@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>k2 Romania</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+  	<!--Početak lijeve strane-->
+    <main>
+      <section class="prozirno">
+        <div class="glavno">
+          <div class="user">
+            <img src ="https://i.ibb.co/mF9HtkV/110.png" class = "logounutra">
+            <h3 style="color: #f8f8f8; text-shadow: 0.4px 0.4px #000000;">k2 Romania Roleplay</h3>
+            <p style="color: #f8f8f8; text-shadow: 1.2px 1.2px #000000;">discord.io/k2roleplay</p>
+          </div>
+
+          <div class="pro">
+            <h1 class="lelo">Loading...</h1>
+            <!-- <img src="ss" alt="" /> -->
+          </div>
+        </div>
+        <!--Kraj lijeve strane-->
+        <div class="imeservera">
+          <div class="status">
+            <img style='max-width:500px; max-height:500px; position:relative; top:-35px;' src='https://i.ibb.co/5k39MSG/110-cerc.png'>
+    <div style='text-align:center; position: relative; bottom:60px;' class="kartica">
+             
+              <div style='text-align:center;' class="kartica-info">
+                <p style="color: #FF00FF; text-align:center; text-shadow: 1.2px 1.2px #000000;font-size:24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bine ai venit pe server-ul nostru</p></p>
+              
+              </div>
+            </div>
+<!--             <h1 style="color: #c300ff; letter-spacing: 3px;text-shadow: 1.4px 1.4px #ffffff;">Medium Roleplay</h1>  -->
+           
+          </div>
+          <div  style = 'position:relative; bottom:40px;' class="infotext">
+              <p style="font-size:19px; color: #ffffff; text-shadow: 1.2px 1.2px #000000; position: relative; bottom:60px;">Apasa SPACE pentru a opri muzica. <br>Note: In caz ca nu merge sa opresti muzica, apasa click iar apoi space.</p>
+            </div>
+          <div style='position:relative; bottom:40px;' class="cards">
+            <div style='position: relative; bottom:50px;' class="kartica">
+              <img src="https://cdn.discordapp.com/attachments/559994699885314059/846455651991289907/outline_grade_black_24dp.png" alt="" />
+              <div class="kartica-info">
+                <p style="color: #FF00FF; text-shadow: 1.2px 1.2px #000000;font-size:24px;">Owners: Kalioops & Krane</p>  
+                <div class="traka"></div>
+              </div>
+            </div>
+            <div style='position: relative; bottom:50px;' class="kartica">
+              <img src="https://cdn.discordapp.com/attachments/559994699885314059/846454842016399402/outline_code_black_24dp.png" alt="" />
+              <div class="kartica-info">
+                <p style="color: #FF00FF; text-shadow: 1.2px 1.2px #000000;font-size:24px;">Developer: Krane & Kalioops</p></p>
+                <div class="traka"></div>
+              </div>
+            </div>
+            <div style='position: relative; bottom:50px;' class="kartica">
+              <img src="https://cdn.discordapp.com/attachments/559994699885314059/846460295878148116/outline_open_in_browser_black_24dp.png" alt="" />
+              <div class="kartica-info">
+                <p style="color: #FF00FF; text-shadow: 1.2px 1.2px #000000;font-size:24px;">Discord: discord.io/k2roleplay</p>
+                <div class="traka"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--Krugovi-->
+    <div class="krug1"></div>
+    <div class="krug2"></div>
+    
+  </body>
+</html>
+
+<!--Dio za muziku-->
+<!--Dio za muziku-->
+<script src="js/script.js"></script>
+
+
+<audio id="Loading" autoplay >
+  <source src="music/denajpederagic.mp3" type="audio/mp3">
+</audio>
+<script>
+var vid = document.getElementById("Loading");
+vid.volume = 0.04
+
+
+var play = true;
+var myAudio = document.getElementById("Loading");
+
+
+myAudio.volume = 0.1;
+
+
+function onKeyDown(event) {
+      switch (event.keyCode) {
+          case 32: //SpaceBar                    
+              if (play) {
+                  myAudio.pause();
+                  play = false;
+              } else {
+                  myAudio.play();
+                  play = true;
+              }
+              break;
+      }
+return false;
+}
+window.addEventListener("keydown", onKeyDown, false);
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+RegisterServerEvent("kickForBeingAnAFKDouchebag")
+AddEventHandler("kickForBeingAnAFKDouchebag", function()
+	DropPlayer(source, "\nk2: Ai fost afk prea mult timp !")
+	TriggerClientEvent('chatMessage', -1,"^3k2^0: ^1"..GetPlayerName(source).." ^0a primit kick pentru ca a stat prea mult afk!")
+end)

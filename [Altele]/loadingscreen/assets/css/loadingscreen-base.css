@@ -1,0 +1,133 @@
+ *{
+  outline: none;
+  word-wrap: break-word;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+#bg. #bg2 {
+  background: #000 none 50% / cover no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+#bg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+#bg2 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+
+.powered-by{
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  left: 30px;
+  background: #fff;
+  opacity: 0.8;
+  z-index: 12;
+  border-radius: 7px 7px 0 0;
+}
+.powered-by > a > img{
+  height: 35px;
+}
+.now-playing{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: #fff;
+  z-index: 12;
+  padding: 5px 15px 5px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.now-playing > div > label {
+  color: #000;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+.now-playing > div > h5 {
+  font-size: 21px;
+  margin-top: -5px;
+}
+.now-playing-icon {
+  font-size: 16px;
+  padding: 8px;
+  display: inline-block;
+}
+.now-playing-text{
+  display: inline-block;
+  vertical-align: top;
+}
+.right-bar{
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 30px;
+  background: #fff;
+  opacity: 0.8;
+  z-index: 12;
+  border-radius: 0 0 7px 7px;
+  padding: 5px 5px 0 5px;
+}
+
+@media screen and (max-width: 1152px), screen and (max-height: 745px) {
+.powered-by{
+    left: 23px;
+  }
+  .powered-by > a > img{
+    height: 23px;
+  }
+  .now-playing > div > label {
+    font-size: 12px;
+  }
+  .now-playing > div > h5 {
+    font-size: 16px;
+    margin-top: -4px;
+  }
+  .now-playing-icon {
+    font-size: 12px;
+    padding: 7px;
+  }
+  .now-playing-text{
+    margin-top: -5px;
+  }
+
+  .right-bar{
+    right: 23px;
+  }
+}
