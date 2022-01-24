@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 --[[
 
     Gestu tau, foarte urat, ca ai indraznit sa furi de la mine
@@ -94,5 +94,4 @@ function Request_POST(url, data)
         url = url,
         data = data
     })
->>>>>>> d05cafde748606797b6297fba9c5b4b7bc8b8657
 end
