@@ -59,6 +59,22 @@ cfg = {
         ['Lider']= 1000,
     },
 
+    ['Bloods'] = {
+        ['Membru'] = 200,
+        ['Tester'] = 400,
+        ['Baza'] = 700,
+        ['Colider'] = 800,
+        ['Lider']= 1000,
+    },
+
+    ['No Mercy'] = {
+        ['Membru'] = 200,
+        ['Tester'] = 400,
+        ['Baza'] = 700,
+        ['Colider'] = 800,
+        ['Lider']= 1000,
+    },
+
     ['Y.A.D'] = {
         ['Membru'] = 200,
         ['Tester'] = 400,
@@ -66,12 +82,6 @@ cfg = {
         ['Colider'] = 1000,
         ['Lider']= 1000,
     },
-    ['Gloria Gang'] = {
-        ['Membru'] = 100,
-        ['Tester'] = 150,
-        ['Lider']= 500,
-        ['Colider'] = 220,
-    }
 }
 
 CreateThread(function()
