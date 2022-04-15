@@ -1,0 +1,63 @@
+.container {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(32, 38, 88, 0.75), rgba(43, 60, 136, 0.3));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    overflow: hidden;
+}
+
+.content_card {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    background: url("img/wallpaper.jpg");
+    transform: translate(-50%, -50%);
+    /* card */
+    border: 2.5px solid rgb(28, 34, 90);
+    border-radius: 13px;
+    box-shadow: 0px 0px 10px rgb(28, 34, 90);
+    min-width: 700px;
+    
+}
+
+.bgfilter {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(32, 38, 88, 0.75), rgba(43, 60, 136, 0.3));
+    filter: blur(3px);
+    position: fixed;
+    z-index: -1;
+}
+
+
+.SonarIMG {
+    max-width: 170px;
+    max-height: 170px;
+}
+
+.SonarIMG:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;;    
+}
+
+.title_sonar {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: rgb(228, 228, 228);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.sonar_imgtitle {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}

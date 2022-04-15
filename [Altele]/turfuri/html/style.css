@@ -1,0 +1,19 @@
+.score {
+    top: 0;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: rgba(0, 217, 255, 0.363);
+    border-radius: 0 0 100px 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+p {
+    font-size: 16px;
+    font-family: cursive;
+    color: rgb(31, 31, 31);
+}

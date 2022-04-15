@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <title>eskape diamondsh2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  
+  <body>
+    <div id = "opwndiamondsh" class = 'diamondsh' style = 'display: none'>
+
+      <div class = 'logodiamondsh'>
+        <img src="img/logo2.png">
+      </div>
+<!--       <h3>SELECTEAZA CATEGORIA</h3> -->
+    <div class = 'fundalcategorie'></div>
+      <div class = 'dropdd'>
+        <div class="dropdown">
+          <button class="dropbtn"><h3><i class="fas fa-angle-double-down"></i> Selecteaza Categoria <i class="fas fa-angle-double-down"></i> </h3></button>
+          <div class="dropdown-content" id = 'categorii'>
+          </div>
+        </div>
+      </div>
+
+        <div class = 'scrollbarButoanele'>
+          <div class="btn-groups" id = 'masinile'>
+          </div>
+        </div>
+
+        
+        <div class = 'butonexit'>
+          <button onclick="exitdiamondsh()" class="button"><h3>EXIT<i class="fas fa-sign-out-alt"></i></h3></button>
+        </div>
+  
+  
+    </div>
+
+    <div class = 'infoMasina' id = 'infoMasina' style = 'display: none'>
+<!--           <h3 id = 'numeMasina-info'>NUMELE MASINII</h3> -->
+          <p><i class="fas fa-angle-double-down"></i> PRETUL MASINII <i class="fas fa-angle-double-down"></i></p>
+          <p id = 'numeMasina-pret'>5.000.000 $</p>
+
+          
+<!--       <div class = 'fuelsize'>
+        <p>Consum</p>
+        <h3 id = 'consum'>1%</h3>
+      </div>
+
+      <div class = 'tipVehicul'>
+        <p>Tip Vehicul</p>
+        <h3 id = 'tipvehicul'>premium</h3>
+      </div>
+ -->
+      <div class = 'barile'>
+        <h1 >Viteza Maxima</h1>
+        <h2 id = 'kmperh'></h2>
+        <div class="roundedBarBox">
+          <div class = roundedBarContainer id = 'kmperhbox'></div>
+        </div>
+        <h1 >acceleratie</h1>
+        <h2 id = 'acceleratie'></h2>
+        <div class="roundedBarBox">
+          <div class = roundedBarContainer id = 'acceleratiebox'  ></div>
+        </div>
+        <h1 >frana</h1>
+        <h2 id = 'frana'></h2>
+        <div class="roundedBarBox">
+          <div class = roundedBarContainer id = 'franabox'></div>
+        </div>
+        <h1 >HP</h1>
+        <h2 id = 'caiputoare'></h2>
+        <div class="roundedBarBox">
+          <div class = roundedBarContainer id = 'caiputoarebox'></div>
+        </div>
+      </div>
+
+<!--       <div class = 'culorile'>
+        <p> Culoare</p>
+        <div class = 'culorileSelectie'>
+          <a onclick="culoare(1)" class="butonel butonel5" style = 'background-color: rgb(255, 255, 255);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(2)" class="butonel butonel5" style = 'background-color: rgb(0, 0, 0);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(3)" class="butonel butonel5" style = 'background-color: rgb(78, 78, 78);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(4)" class="butonel butonel5" style = 'background-color: rgb(255, 251, 0);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(5)" class="butonel butonel5" style = 'background-color: rgb(0, 255, 0);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(6)" class="butonel butonel5" style = 'background-color: rgb(194, 30, 30);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(7)" class="butonel butonel5" style = 'background-color: rgb(10, 101, 221);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(8)" class="butonel butonel5" style = 'background-color: rgb(200, 24, 171);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(9)" class="butonel butonel5" style = 'background-color: rgb(0, 247, 255);' role="button" aria-pressed="true"></a>
+          <a onclick="culoare(10)" class="butonel butonel5" style = 'background-color: rgb(86, 6, 110);' role="button" aria-pressed="true"></a>
+        </div>
+      </div> -->
+
+      <!--
+      <div class = price>
+        <h1>pret</h1>
+        <h2 id = 'pret'>$10.000.000</h2>
+      </div>
+      -->
+      
+      <div class = 'fundal2'>
+        <div class = 'shopbuttons'>
+          <div class="btn-group">
+            <button onclick="cumparaMasina()" class="button">cumpara <i class="fas fa-shopping-cart"></i></button>
+            <button onclick="testeazaMasina()" class="button">testeaza</button>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <script src='https://static.tumblr.com/xngweh4/jVInr6vnz/colpick.js'></script>
+    <script  src="./scripts.js"></script>
+  </body>
+</html>

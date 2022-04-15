@@ -1,0 +1,11 @@
+  --- 8ball
+  Citizen.CreateThread(function()
+    local blip = AddBlipForCoord(-1595.92578125,-989.53930664062,13.075116157532)
+    SetBlipSprite(blip, 509)
+    SetBlipScale(blip, 0.8)
+    SetBlipColour(blip, 83)
+    SetBlipAsShortRange(blip, true)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentString("Biliard")
+    EndTextCommandSetBlipName(blip)
+  end)

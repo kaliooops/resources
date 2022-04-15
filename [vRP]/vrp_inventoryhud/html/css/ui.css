@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
+
+body {
+    overflow: hidden;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Encode Sans', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    user-select: none;
+}
+
+.ui {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 0;
+}
+
+.inventory {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1550px;
+    height: 600px;
+}
+
+#playerInventory {
+    width: 625px;
+    height: 600px;
+    float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#controls {
+    width: 300px;
+    height: 600px;
+    float: left;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+#otherInventory {
+    width: 625px;
+    height: 600px;
+    float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#count {
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+#search {
+    display: none;
+    border: none;
+    outline: none;
+    font-size: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.slot {
+    float: left;
+    width: 123px;
+    height: 123px;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 1px rgba(38, 38, 38, 0.3) inset;
+    margin: 2px 2px 0px 0px;
+    position: relative;
+    border-radius: 8px;
+}
+
+#playerInventory > .slot:nth-child(1):after,
+#hotbar > .slot:nth-child(1):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '1';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	outline: 1px solid rgba(0,0,0,0.9);
+	outline-offset: -1px;
+}
+
+#playerInventory > .slot:nth-child(2):after,
+#hotbar > .slot:nth-child(2):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '2';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	outline: 1px solid rgba(0,0,0,0.9);
+	outline-offset: -1px;
+}
+
+#playerInventory > .slot:nth-child(3):after,
+#hotbar > .slot:nth-child(3):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '3';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	outline: 1px solid rgba(0,0,0,0.9);
+	outline-offset: -1px;
+}
+
+#playerInventory > .slot:nth-child(4):after,
+#hotbar > .slot:nth-child(4):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '4';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	outline: 1px solid rgba(0,0,0,0.9);
+	outline-offset: -1px;
+}
+
+#playerInventory > .slot:nth-child(5):after,
+#hotbar > .slot:nth-child(5):after {
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	content: '5';
+	height: 15px !important;
+	width: 15px !important;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	outline: 1px solid rgba(0,0,0,0.9);
+	outline-offset: -1px;
+}
+
+.slot:hover {
+    background-color: rgba(10, 10, 10, 0.65);
+}
+
+.item {
+    width: 123px;
+    height: 123px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.item-name {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 500;
+    font-size: 12px;
+    padding: 2px 0px;
+    background-color: rgba(12, 12, 12, 0.25);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.item-name-bg {
+    width: 100%;
+    width: 117px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+.ui-draggable-dragging .item-name,
+.ui-draggable-dragging .item-count {
+    display: none;
+}
+
+.item-count {
+    position: absolute;
+    top: 0;
+    text-align: right;
+    width: 114px;
+    height: 20px;
+    z-index: 500;
+    font-size: 10px;
+}
+
+.item-action {
+    top: 0;
+	left: 0;
+	margin: 0 auto;
+	position: absolute;
+	height: 15px !important;
+	width: auto;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 14px;
+	vertical-align: middle;
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	outline: 1px solid rgba(0,0,0,0.9);
+	outline-offset: -1px;
+    padding: 2px;
+}
+
+.controls-div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background-color: rgba(26, 22, 22, 0.849);
+    height: 100%;
+}
+
+.control {
+    width: 150px;
+    height: 40px;
+    background-color: rgba(12, 12, 12, 0.25);
+    margin: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    border-radius: 8px;
+}
+
+.control.disabled {
+    background-color: rgba(10, 10, 10, 1);
+}
+
+.hoverControl {
+    background-color: rgba(218, 0, 0, 0.2);
+}
+
+#playerInventory::-webkit-scrollbar-track,
+#otherInventory::-webkit-scrollbar-track {
+    background-color: none;
+    border: none;
+}
+
+#playerInventory::-webkit-scrollbar,
+#otherInventory::-webkit-scrollbar {
+   width: 0px;
+}
+
+#playerInventory::-webkit-scrollbar-thumb,
+#otherInventory::-webkit-scrollbar-thumb {
+	background-color: rgba(10, 10, 10, 0.5);
+	border-radius: 8px;
+}
+
+#info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#playerInfo, #otherInfo {
+    display: none;
+    color: white;
+    font-size: 18px;
+    width: 625px;
+}
+
+#otherInfo {
+    text-align: right;
+}
+
+#progbar {
+    display: block;
+    background: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	height: 15px;
+	border-radius: 8px;
+	border: 1px solid rgba(0,0,0,0.0);
+    margin-top: 2px;
+}
+
+#progbar-value {
+	background: #30a121;
+	border: 0px;
+	border-radius: 8px;
+    height: 100%;
+}
+
+#hotbar {
+	height: 110px;
+	min-width: 110px;
+	width: fit-content;
+	position: absolute;
+	left: 50%;
+	bottom: 3%;
+	transform: translate(-50%, 0%);
+}
+
+#notifications {
+	height: 110px;
+	min-width: 110px;
+	width: fit-content;
+	position: absolute;
+	left: 50%;
+	bottom: 15%;
+	transform: translate(-50%, 0%);
+}
+
+#description {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, .4);
+}
+
+@media (max-width: 1500px) {
+    .inventory {
+        width: 1300px;
+    }
+
+    #playerInventory {
+        width: 550px;
+    }
+
+    #controls {
+        width: 200px;
+    }
+
+    #otherInventory {
+        width: 550px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .inventory {
+        width: 1000px;
+    }
+
+    #playerInventory {
+        width: 425px;
+    }
+
+    #controls {
+        width: 150px;
+    }
+
+    #otherInventory {
+        width: 425px;
+    }
+}
+
+
+.imglogo {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    left: 5px;
+}
+
+.overlay_imglogo {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 5px;
+    top: 0px;
+    background-color: rgba(26, 22, 22, 0.329);
+}

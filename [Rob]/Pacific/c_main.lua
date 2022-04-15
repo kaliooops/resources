@@ -1,0 +1,245 @@
+function rob(bank)
+    TriggerServerEvent("bank_robbed", bank)
+
+    local ped = PlayerPedId()
+        
+    while bank.secunde_ramase == 0 do Wait(2500) end
+
+    ---------triggere
+
+    RegisterNetEvent("action:panou")
+    AddEventHandler("action:panou", function (ped)
+        SetEntityCoords(ped, bank.panou.location.x, bank.panou.location.y, bank.panou.location.z, 1, 0, 0, 0)
+        SetEntityHeading(ped, bank.panou.heading)
+        ExecuteCommand(bank.panou.anim)
+        showProgress("Tai panoul")
+        Wait(150000)
+        bank.panou.finished = true
+        ClearPedTasks(ped)
+    end)
+
+    RegisterNetEvent("action:balamale")
+    AddEventHandler("action:balamale", function (ped)
+        SetEntityCoords(ped, bank.balamale.location.x, bank.balamale.location.y, bank.balamale.location.z, 1, 0, 0, 0)
+        SetEntityHeading(ped, bank.balamale.heading)
+        ExecuteCommand(bank.balamale.anim)
+        showProgress("Tai balamalele")
+        Wait(150000)
+        bank.balamale.finished = true
+        ClearPedTasks(ped)
+    end)
+
+    RegisterNetEvent("action:tableta")
+    AddEventHandler("action:tableta", function (ped)
+        SetEntityCoords(ped, bank.tableta.location.x, bank.tableta.location.y, bank.tableta.location.z, 1, 0, 0, 0)
+        SetEntityHeading(ped, bank.tableta.heading)
+        ExecuteCommand(bank.tableta.anim)
+        showProgress("Opresti securizarea")
+        Wait(150000)
+        bank.tableta.finished = true
+        ClearPedTasks(ped)
+        ExecuteCommand("e c")
+    end)
+
+    RegisterNetEvent("action:camera")
+    AddEventHandler("action:camera", function (ped)
+        SetEntityCoords(ped, bank.camera.location.x, bank.camera.location.y, bank.camera.location.z, 1, 0, 0, 0)
+        SetEntityHeading(ped, bank.camera.heading)
+        ExecuteCommand(bank.camera.anim)
+        showProgress("Cauti vulnerabilitati")
+        Wait(150000)
+        bank.camera.finished = true
+        ClearPedTasks(ped)
+        ExecuteCommand("e c")
+    end)
+
+    RegisterNetEvent("action:computer")
+    AddEventHandler("action:computer", function (ped)
+        SetEntityCoords(ped, bank.computer.location.x, bank.computer.location.y, bank.computer.location.z, 1, 0, 0, 0)
+        SetEntityHeading(ped, bank.computer.heading)
+        ExecuteCommand(bank.computer.anim)
+        showProgress("Virusezi Sistemul")
+        Wait(150000)
+        bank.computer.finished = true
+        ClearPedTasks(ped)
+        ExecuteCommand("e c")
+    end)
+
+    RegisterNetEvent("action:manere")
+    AddEventHandler("action:manere", function (ped)
+        SetEntityCoords(ped, bank.manere.location.x, bank.manere.location.y, bank.manere.location.z, 1, 0, 0, 0)
+        SetEntityHeading(ped, bank.manere.heading)
+        ExecuteCommand(bank.manere.anim)
+        showProgress("Rupi manerul")
+        Wait(150000)
+        bank.manere.finished = true
+        ClearPedTasks(ped)
+        ExecuteCommand("e c")
+    end)
+
+    RegisterNetEvent("action:card")
+    AddEventHandler("action:card", function (ped)
+        SetEntityCoords(ped, bank.card.location.x, bank.card.location.y, bank.card.location.z, 1, 0, 0, 0)
+        SetEntityHeading(ped, bank.card.heading)
+        ExecuteCommand(bank.card.anim)
+        showProgress("Incerci cardurile")
+        Wait(150000)
+        bank.card.finished = true
+    end)
+
+    ExecuteCommand("e texting")
+    ExecuteCommand("me Opreste camerele")
+    Wait(5000)
+    ClearPedTasks(ped)
+    bank.is_being_robbed = true
+    CreateThread(function ()
+        Wait(1800000)
+        bank.is_being_robbed = false
+        bank.balamale.finished = true
+        bank.panou.finished = true
+        bank.manere.finished = true
+        bank.computer.finished = true
+        bank.card.finished = true
+        bank.tableta.finished = true
+        bank.camera.finished = true
+        TriggerServerEvent("robpacific_failed", bank)
+    end)
+    while true do        
+        Wait(0)
+        local ped_coords = GetEntityCoords(ped)
+        if not bank.panou.finished then
+            k_draw3DText(bank.panou.location.x, bank.panou.location.y, bank.panou.location.z+1.5, "Panou", 1.0, 4)
+            if Vdist(ped_coords, bank.panou.location) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+                    TriggerServerEvent('gett:panou')
+                end
+            end
+        end
+
+        if not bank.balamale.finished then
+            k_draw3DText(bank.balamale.location.x, bank.balamale.location.y, bank.balamale.location.z+1.5, "Balamale", 1.0, 4)
+            if Vdist(ped_coords, bank.balamale.location) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+                    TriggerServerEvent('gett:balamale')
+                end
+            end
+        end
+
+        if not bank.card.finished then
+            k_draw3DText(bank.card.location.x, bank.card.location.y, bank.card.location.z+1.5, "Panou", 1.0, 4)
+            if Vdist(ped_coords, bank.card.location) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+                    TriggerServerEvent('gett:card')
+                end
+            end
+        end
+
+        if not bank.computer.finished then
+            k_draw3DText(bank.computer.location.x, bank.computer.location.y, bank.computer.location.z+1.5, "Computer", 1.0, 4)
+            if Vdist(ped_coords, bank.computer.location) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+                    TriggerServerEvent('gett:computer')
+                end
+            end
+        end
+
+        if not bank.camera.finished then
+            k_draw3DText(bank.camera.location.x, bank.camera.location.y, bank.camera.location.z+1.5, "Informatii", 1.0, 4)
+            if Vdist(ped_coords, bank.camera.location) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+                    TriggerServerEvent('gett:camera')
+                end
+            end
+        end
+
+        if not bank.manere.finished then
+            k_draw3DText(bank.manere.location.x, bank.manere.location.y, bank.manere.location.z+1.5, "Manerul", 1.0, 4)
+            if Vdist(ped_coords, bank.manere.location) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+                    TriggerServerEvent('gett:manere')
+                end
+            end
+        end
+
+        if not bank.tableta.finished then
+            k_draw3DText(bank.tableta.location.x, bank.tableta.location.y, bank.tableta.location.z+1.5, "Opreste Sistemele", 1.0, 4)
+            if Vdist(ped_coords, bank.tableta.location) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+                    TriggerServerEvent('gett:tableta')
+                end
+            end
+        end
+
+        if bank.panou.finished and bank.balamale.finished and bank.tableta.finished and bank.manere.finished and bank.camera.finished and bank.computer.finished and bank.card.finished and bank.is_being_robbed then
+            SetNewWaypoint(3352.3271484375,5559.6840820313,18.539682388306)
+            k_draw3DText(3352.3271484375,5559.6840820313,18.539682388306+1.5, "Ascunde aici Banii",1.0, 4)
+            if Vdist(ped_coords, 3352.3271484375,5559.6840820313,18.539682388306) < 2.0 then
+                if IsControlJustPressed(1, 51) then
+            TriggerServerEvent("robpacific_finished", bank)
+            break
+                end
+            end
+        end
+
+    end
+end
+
+
+local cop_number = 0
+--prepare banks
+CreateThread(function ()
+    local waittime = 1000
+    while true do
+        Wait(waittime)
+        local ped = PlayerPedId()
+        local ped_coords = GetEntityCoords(ped)
+                
+        for _,bank in pairs(cfg) do
+            local bank_coords = bank.location
+            local panou = bank.panou
+            local balamale = bank.balamale
+            local tableta = bank.tableta
+            local camera = bank.camera
+            local computer = bank.computer
+            local manere = bank.manere
+            local card = bank.card
+            local dist = #(ped_coords - bank_coords)
+
+            if dist < 3.0 then
+                waittime = 0
+                if bank.secunde_ramase <= 0 then
+                    --draw can rob
+                    k_draw3DText(bank_coords.x, bank_coords.y, bank_coords.z+1.0, "Apasa [~b~E~w~] sa jefuiesti", 1, 1)
+                    if IsControlJustPressed(1, 51) then
+                        if cop_number >= 15 then
+                            rob(bank)
+                        else
+                            TriggerEvent("toasty:Notify", {type = "info", title="Jaf", message = "Trebuie sa fie 15 politisti on"})
+
+                        end
+                    end
+                else
+                    --draw cant rob
+                    k_draw3DText(bank_coords.x, bank_coords.y, bank_coords.z+1.0, "Asteapta " .. bank.secunde_ramase , 1, 1)
+                end
+            end
+        end
+    end
+end)
+
+
+
+RegisterNetEvent("get_wait_time_for_bank")
+AddEventHandler("get_wait_time_for_bank", function (bank_name, ramase)
+    for _, bank in pairs(cfg) do
+        if bank.name == bank_name then
+            bank.secunde_ramase = ramase
+            break
+        end
+    end
+end)
+
+RegisterNetEvent("get_cop_number")
+AddEventHandler("get_cop_number", function (cop_n)
+    cop_number = cop_n
+end)

@@ -1,0 +1,1 @@
+document.getElementById("score").style.display = "none";

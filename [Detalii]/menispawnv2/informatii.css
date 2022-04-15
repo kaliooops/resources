@@ -1,0 +1,65 @@
+.informatii_title {
+    font-family: cursive;
+    font-size: 29px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.informatii_window {
+    transition: all 0.5s ease-in-out;
+}
+
+.informatii_descriere {
+    font-family: cursive;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.pas {
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.pas-pointer {
+    color: rgb(224, 18, 18);
+    margin-right: 10px;
+}
+.pas-text {
+    padding-right: 10px;
+}
+
+.informatii_bulk {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.filter_bginformatii {
+    background: linear-gradient(to bottom, rgba(42, 42, 42, 0.5), rgba(133, 132, 132, 0.1));
+}
+
+.btnInapoi {
+    background: linear-gradient(to bottom, rgba(184, 39, 13, 0.6), rgba(0, 0, 0, 0.4));
+    color: white;
+    border: none;
+    font: inherit;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btnInapoi:hover {
+    background: linear-gradient(to bottom, rgba(175, 43, 20, 0.9), rgba(0, 0, 0, 0.2));
+}

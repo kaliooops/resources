@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>vRP INVENTORY HUD</title>
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"> -->
+    <script src="js/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/inventory.js"></script>
+</head>
+
+<body>
+    <div class="ui">
+        <div class="inventory">
+            <div id="info">
+                <div id="playerInfo">0/0KG</div>
+                <div id="otherInfo">0/0KG</div>
+            </div>
+            <div id="playerInventory" data-type="main"></div>
+            <div id="controls">
+                <div class="controls-div">
+                    <img class="imglogo" src="img/logo.png">
+                    <div class="overlay_imglogo"></div>
+
+                    <input type="text" class="control" id="search" placeholder="Type to search...">
+                    <input type="number" class="control" id="count" value="1">
+                    <div class="control" id="use">Use</div>
+                    <div class="control" id="give">Give</div>
+                </div>
+            </div>
+            <div id="otherInventory" data-type="second"></div>
+            <div id="description"></div>
+        </div>
+    </div>
+
+    <div id="hotbar"></div>
+    <div id="notifications"></div>
+
+</body>
+
+</html>

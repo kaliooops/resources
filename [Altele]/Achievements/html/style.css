@@ -1,0 +1,100 @@
+/* global font */
+
+body {
+    overflow: hidden;
+}
+
+* {
+    font-family: cursive;
+}
+
+.main-deschis {
+    right: 0px;
+    transition: all 0.5s;
+}
+
+.main {
+    background: url("https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/f8f656b73252c75518351df0289a43cc.jpg");
+    top: 190px;
+    right: -255px;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: absolute;
+    border: 1px solid black;
+    width: 250px;
+    
+    transition: all 0.5s;
+}
+
+/* .main:hover {
+    right: 0px;
+    transition: all 0.5s;
+} */
+
+
+
+.title_progress {
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-right: 10px;    
+}
+.achievement_title {
+    color: white;
+    align-items: left;
+
+}
+
+.achievement_progress{
+    color: white;
+    align-items: right;
+    text-align: right;
+    justify-content: right;
+}
+
+.achievement_description {
+    color: white;
+    align-items: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.horizontal_Separator {
+    border-bottom: 2px solid rgb(50, 109, 163);
+}
+
+.ac_title {
+    color:white;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.close_open_arrow {
+    width: 30px;
+    height: 100%;
+    background-color: rgb(30,33,42);
+    position: absolute;
+    top: 0px;
+    left: -30px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.close_open_arrow > p {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: auto;
+    margin-left: 3px;
+    position: absolute;
+    top: 40%;
+}

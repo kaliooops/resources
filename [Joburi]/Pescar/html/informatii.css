@@ -1,0 +1,63 @@
+.informatii_text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: rgb(228, 228, 228);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.vertical_separator {
+    border-left: rgba(251, 249, 249, 0.9) solid 1px;
+    height: 100%;
+    /* margin-left: 10px; */
+}
+
+
+.informatii {
+    border-top: rgba(228, 228, 228, 0.5) solid 1px;
+    background: linear-gradient(to bottom, rgba(27, 50, 126, 0.75), rgba(18, 31, 92, 0.3));
+    
+    display: grid;
+    grid-template-columns: 1fr 0 1fr;
+    
+}
+
+
+.tab_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: rgb(228, 228, 228);
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+.tab_info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: rgb(228, 228, 228);
+    text-align: left;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.tab_info_prefix {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: rgb(243, 0, 0);
+    text-align: left;
+    margin-top: 10px;
+    padding-right: 10px;
+}
+
+.tab_data {
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+    
+}
+
+.peste_tabdata {
+    padding-left: 75px;
+}

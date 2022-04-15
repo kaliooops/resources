@@ -1,0 +1,22 @@
+.beginner {
+    /* background-color: rgba(42, 60, 117, 0.15); */
+}
+.cards_div {
+    display: flex;
+    flex-direction: row;
+    /* 3 cars per row */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.incepator_title {
+    font-family: cursive;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+
+}

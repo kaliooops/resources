@@ -1,0 +1,150 @@
+body {
+    overflow: hidden;
+}
+img {
+    width: 30px;
+    height: 30px;
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 250px;
+    height: 100px;
+    
+}
+
+.bgpic {
+    /* border-radius: 100px 10px 7px 20px; */
+    border-radius: 100px 0px 0px 20px;
+    border-left: 2px solid #710f85;
+    border-top: 2px solid #710f85;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+    box-shadow: 0px 0px 10px #000000;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning_logo {
+    animation: spin 1s;
+}
+
+.flipping_logo { 
+    animation: flip 1s;
+}
+
+@keyframes flip {
+    /* flip from right to left and back */
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(180deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+
+.rubber_band_logo {
+    animation: rubberBand 1s;
+}
+
+@keyframes rubberBand {
+    0% { transform: scaleX(1); }
+    30% { transform: scaleX(1.25); }
+    40% { transform: scaleX(0.75); }
+    50% { transform: scaleX(1.15); }
+    65% { transform: scaleX(0.95); }
+    100% { transform: scaleX(1); }
+}
+
+.pressed {
+    animation: pressed 1s;
+}
+
+@keyframes pressed {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.pixelated_logo {
+    animation: pixelated 1s;
+}
+
+@keyframes pixelated {
+    0% { backdrop-filter: blur(0px); }
+    50% { backdrop-filter: blur(10px); }
+    100% { backdrop-filter: blur(0px); }
+}
+
+
+.fade {
+    animation: fadeinout 1s;
+}
+
+@keyframes fadeinout {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.bani {
+    text-align: right;
+    font-size: 16px;
+    font-family: cursive;
+    color: rgb(219, 219, 219);
+}
+
+.logo_si_bani {
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* center */
+    align-items: center;
+    gap: 5px;
+}
+
+.logo_si_bani_bank {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* center */
+    align-items: center;
+    gap: 5px;
+
+}
+
+.logo_si_diamante {
+
+    position: absolute;
+    top: 55px;
+    left: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+}

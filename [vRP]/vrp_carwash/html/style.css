@@ -1,0 +1,67 @@
+body{
+    color: #fff;
+    font-family: sans-serif;
+}
+.ui{
+    position: absolute;
+    top: 45%;
+    transform: translateX(-45%);
+    left: 42%;
+    transform: translateY(-42%);
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 15px;
+    background-color: #c8e7ff;
+    width: 300px;
+    height:420px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 30px #000;
+}
+.close{
+    color: rgb(0, 0, 0);
+    float: right;
+    transition: 0.5s;
+}
+.close:hover{
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+    transform: rotate(720deg);
+}
+.title{
+    font-size: 22px;
+    background-color: #c0fdff;
+    width: 75%;
+    text-align: center;
+    padding: 8px;
+    color: #000;
+    font-weight: 900;
+    border-radius: 25px;
+    margin: auto;
+}
+.price{
+    font-weight: 700;
+    color: #000;
+    position: absolute;
+    left: 50%;
+    transform: translateY(-50%);
+    top: 55%;
+    transform: translateX(-55%);
+}
+.cumpara{
+    font-weight: 650;
+    position: absolute;
+    left: 25%;
+    transform: translateY(-25%);
+    background-color: #c0fdff;
+    color: #000;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 25px;
+    border: 2px solid #000;
+    transition: ease-in 0.5s;
+}
+.cumpara:hover{
+    background-color: #c8e7ff;
+    cursor: pointer;
+}

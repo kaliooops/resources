@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap'); 
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* make body full page */
+
+@keyframes slidein {
+  from {
+	opacity: 0.1;
+    /*margin-left: -10%;
+    width: 300%;*/
+  }
+
+  to {
+	opacity: 1.0;
+    /*margin-left: 3%;
+    width: 100%;*/
+  }
+}
+html, body {
+  margin: 0;
+  height: 100%;
+  text-align:center;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: 'Goldman';
+
+  /* background-color: rgb(87, 87, 87); */
+
+}
+
+
+/* .bg-image {
+  height:400px;
+  width:200px;
+  opacity: 0.8;
+  border-radius:13px;
+  margin-top:25px;
+  margin-left: 75%;
+  margin-top: auto;
+  bottom: 30px;
+  position: absolute;
+} */
+
+.console{
+  background-color: white;
+  color: white;
+  font-weight: bold;
+}
+
+
+.menu {   
+  width:400px;
+  height: 230px;
+  border-radius: 10px 10px 0px 0px;
+  background-image: url('https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/f8f656b73252c75518351df0289a43cc.jpg');
+  background-size:cover;
+  background-position:center;
+  right: 200px;
+  bottom: 180px;
+  margin-top: auto;
+  position: absolute;
+
+  animation: bounce_in 1s;
+
+  /* encapsulate visually */
+  box-shadow: 0px 0px 10px black;
+
+  
+}
+
+@keyframes bounce_in {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+ 
+
+.menu:before {
+  
+  
+}
+
+.menu:after  {
+
+ 
+
+}
+/* 
+* { 
+  box-sizing: border-box;
+  background-color: red;
+  color: blue;
+  border: 1px solid yellow;
+
+} */
+
+.menu > * {
+  
+  color:rgba(255,255,255,0.95);
+  -webkit-text-stroke: -0.1px #000000;
+  position: absolute;
+
+}
+
+
+
+.menu_description {
+  /* this appears on the right side of the menu */
+  /* make sure it looks kinda like the menu */
+
+  border-radius: 10px 10px 0px 0px;
+  background-image: url('https://cdn2.steamgriddb.com/file/sgdb-cdn/hero_thumb/f8f656b73252c75518351df0289a43cc.jpg');
+  background-size:cover;
+  background-position:center;
+  position: absolute;
+  color: white;
+  float: left; 
+  position:absolute;
+  font-weight: bold;
+  padding: 5px; 
+  font-size: 1em;
+  max-width: 500px;
+  max-height: 200px;
+
+
+}
+
+.menu h1{
+  opacity:0;
+}
+
+.choices{
+  width:100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  text-shadow: 1.3px 1.3px #000;
+  font-family: 'Goldman';
+  overflow-x: hidden;
+  max-height: 100%;
+  
+}
+
+.choices::-webkit-scrollbar{ 
+  display: none; 
+}
+
+.choices div{
+  padding: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  
+  border: 1px solid rgb(47, 71, 143);
+ 
+}
+
+.choices .selected{ 
+  border: 1px solid rgb(24, 180, 58);
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgb(24, 180, 58);
+
+  /* gradiant border */
+  background: linear-gradient(to right, rgba(44, 61, 47, 0.6), rgba(16, 184, 52, 0.3));
+  
+}
+
+/* progress bar */
+.progressbar{
+  position: absolute;
+  font-family: 'Goldman';
+  font-size: 12px;
+  letter-spacing: 2.2px;
+  border-radius: 10%;
+  border: 1.8px solid rgb(47, 71, 143);
+  border-radius: 7px;
+  box-shadow: 3px 7px rgb(14, 65, 173, 0.9);
+  -webkit-backdrop-filter: blur(5px);
+-webkit-animation: bganim 40s linear 0s infinite;
+animation: bganim 40s linear 0s infinite !important;
+  -webkit-transition: background .2s ease;
+-o-transition: background .2s ease;
+transition: background .2s ease;
+
+}
+
+
+
+.progressbar .label{
+  position: absolute;
+  color: white;
+  border-radius: 10%;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px black;
+}
+
+
+/* wprompt */
+.wprompt{
+  background-color: #212121;
+  
+  font-family: 'Goldman', sans-serif;
+  border: 1.9px solid rgb(47, 71, 143, 0.9);
+  border-radius: 7px;
+  box-shadow: 3px 7px rgb(14, 65, 173);
+  color: rgba(47, 71, 143, 0.9);
+  width: 300px;
+  height: 200px;
+
+
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  cursor: pointer;
+}
+.wprompt:after{
+  background-image: url('https://i.ibb.co/WfLDsJ8/500x.png');
+  background-size: 30px 30px;
+  display: inline-block;
+  width: 30px; 
+  height: 30px;
+  position: relative;
+  top: 1.5%;
+  left:43%;
+  content:"";
+}
+
+.wprompt h1{
+    margin-top:10px;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  font-family: 'Goldman', sans-serif;
+}
+
+.wprompt textarea{
+  outline: none !important;
+  /* background-image: url(https://imgur.com/WcIoyJc.png%27); */
+  /* background-image: url('https://media.discordapp.net/attachments/861312990355652648/862017374927192145/resrew.png?width=900&height=506'); */
+  background-color: rgba(32, 32, 32, 0.85);
+  background-image: url('https://i.ibb.co/7nS3YdK/signs.png');
+  -webkit-backdrop-filter: blur(5px);
+/* -webkit-animation: bganim 40s linear 0s infinite;
+animation: bganim 40s linear 0s infinite;
+  -webkit-transition: background .2s ease;
+-o-transition: background .2s ease;
+transition: background .2s ease; */
+  font-family: 'Goldman', sans-serif; 
+  color: white;
+  width: 400px;
+  height: 200px;
+  letter-spacing: 1.1px;
+  border: 1px solid rgba(96, 92, 92,0.90);
+  box-shadow: inset 1px 1px 18px 1px #000000;
+  border-radius: 0px 15px 15px 0px;
+  flex: 1;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  padding: 12px;
+  resize: none;
+  position:relative;
+  top:10%;
+  box-sizing: border-box;
+}
+
+
+.wprompt textarea:focus{
+  outline: none !important;
+}
+
+.wprompt .help{
+  font-size: 12px;
+  font-family: 'Goldman', sans-serif;
+  padding: 3px;
+  text-transform: uppercase;
+}
+@-webkit-keyframes bganim {
+0% {
+  background-position: 0 0
+}
+
+50% {
+  background-position: 500px -500px
+}
+
+to {
+  background-position: 1000px -1000px
+}
+}
+
+@keyframes bganim {
+0% {
+  background-position: 0 0
+}
+
+50% {
+  background-position: 500px -500px
+}
+
+to {
+  background-position: 1000px -1000px
+}
+}
+
+/* request manager */
+.request_manager{
+  position: absolute;
+  bottom: -1px;
+  right: 25px;
+  text-align: right;
+}
+
+.request_manager div{
+  margin-bottom: 0px;
+}
+
+.request_manager div > span{
+
+  background-color: #212121;
+
+  font-family: 'Goldman', sans-serif;
+  border: 3.3px solid rgb(14, 65, 173);
+  box-shadow: 10px rgb(47, 71, 143, 0.9);
+  border-radius: 7px;
+  background-image: url(https://imgur.com/WcIoyJc.png%27);
+  font-size: 25px;
+  color: #3a17d6;
+  margin-bottom: -1px;
+  letter-spacing: 1px;
+  background-color: rgba(32, 32, 32, 0.90);
+  -webkit-backdrop-filter: blur(5px);
+-webkit-animation: bganim 40s linear 10s infinite;
+animation: bganim 40s linear 0s infinite;
+  -webkit-transition: background 10s ease;
+-o-transition: background 10s ease;
+transition: background 10s ease;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+
+.request_manager .yes{
+  font-family: 'Goldman', sans-serif;
+  padding-left: 15px;
+  color: rgb(152, 240, 37);
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.request_manager .no{
+  font-family: 'Goldman', sans-serif;
+  color: rgb(255,0,0);
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+/* announce */
+
+.announce{
+  position: absolute;
+  text-align: left;
+  top: 100px;
+  left: 50%;
+  width: 320px;
+  height: 232px;
+  padding: 25px 30px 30px 30px;
+  margin-left: 250px;
+  font-size: 1.1em;
+  text-shadow: 2px 2px black;
+  color: white;
+  display: none;
+  opacity: 0.90;
+  background-repeat: no-repeat;
+}
+
+.announce div {
+  width: 210px;
+}
+.general img {
+  position:absolute;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+.dmvContainer {
+  display:none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #555;
+}
