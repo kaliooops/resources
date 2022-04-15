@@ -124,9 +124,10 @@ end)
 
 
 
-function c_kraneUtility.Generic_Marker(x,y,z,r,g,b)
+function c_kraneUtility.Generic_Marker(x,y,z,r,g,b, sx, sy, sz)
+    if not sx and not sy and not sz then sx,sy,sz = 1.0,1.0,0.5 end
     if not r and not g and not b then r = 255 g = 255 b = 255 end
-    DrawMarker(1, x,y,z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.5, r,g,b, 100, false, true, 2, false, false, false, false)
+    DrawMarker(1, x,y,z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, sx, sy, sz, r,g,b, 100, false, true, 2, false, false, false, false)
 end
 
 function c_kraneUtility.Outline_Entity(entity)
