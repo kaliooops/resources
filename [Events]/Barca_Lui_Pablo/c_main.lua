@@ -19,7 +19,6 @@ end
 local started = false
 CreateThread(function()
     while true do
-        print("aa")
         Wait(1000)
         if GetClockHours() == 18 then
             if not started then
@@ -33,14 +32,4 @@ CreateThread(function()
         end
         
     end
-end)
-
-RegisterCommand("event", function()
-    start_event()
-end, false)
-
-CreateThread(function()
-    Wait(5000)
-    
-
 end)

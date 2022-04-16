@@ -10,8 +10,6 @@ function check_license()
             end
         else
             if err == 0 then
-               print("^1\n\n\n===============================")
-               print("^3[CLASSES]^1 Server is offline^0") 
                return
             end
         end
