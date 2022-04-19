@@ -16,9 +16,10 @@ function splash_the_user() {
         close_splash();
     }, 8000);
 }
+
 addEventListener("message", function(e) {
     var data = e.data;
     if (data.cmd == "splash") {
-            splash_the_user();
+        splash_the_user();
     }
 });

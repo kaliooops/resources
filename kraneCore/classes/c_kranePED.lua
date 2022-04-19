@@ -37,7 +37,6 @@ function c_kranePED.new()
     return instance
 end
 
-
 function c_kranePED:Update_Position()
     x,y,z = table.unpack(GetEntityCoords(self.ped))
     
@@ -62,7 +61,7 @@ function c_kranePED:Create_Me(x, y, z, heading, model, isNet)
 end
 
 
-function c_kranePED:Set_Name_And_Responsability(name, responsability)
+function c_kranePED:Set_Name_And_Responsability(name, responsability, ped)
     CreateThread(function()
         while true do
             Wait(0)
@@ -120,6 +119,7 @@ function c_kranePED:Generic_NPC(animation)
     self:Freeze()
     self:Idle(animation)
 end
+
 
 function c_kranePED:Set_Personality(trait)
     if trait == "scared" then
@@ -184,7 +184,9 @@ function c_kranePED:Drive_To_Coords(x,y,z)
     vehhash = GetHashKey(vehhash)
 
     if not self.driving_style then self.driving_style = 786603 end
-    TaskVehicleDriveToCoord(self.ped, GetVehiclePedIsUsing(self.ped), x,y,z, 20.0, 1.0, vehhash, self.driving_style, 1.0, true)
+    -- TaskVehicleDriveToCoord(self.ped, GetVehiclePedIsUsing(self.ped), x,y,z, 20.0, 1.0, vehhash, self.driving_style, 1.0, true)
+    TaskVehicleDriveToCoordLongrange(self.ped, GetVehiclePedIsUsing(self.ped), x,y,z, 60.0, 447, 20.0);
+
 
     CreateThread(function()
         while true do

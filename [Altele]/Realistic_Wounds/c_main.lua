@@ -2,7 +2,6 @@ kraneUtility = module(Classes_Config.resource_name, "classes/c_kraneUtility")
 kranePed = module(Classes_Config.resource_name, "classes/c_kranePED")
 kraneVeh = module(Classes_Config.resource_name, "classes/c_kraneVehicle")
 kraneObject = module(Classes_Config.resource_name, "classes/c_kraneObject")
-
 CreateThread(function()
     Wait(30000)
 
@@ -99,7 +98,6 @@ function simulate_heavy_injury()
     StopScreenEffect('Rampage')
     heavy_injury = false
 end
-
 
 local xSound = exports.xsound
 xSound:Destroy("heartbeat_krane_wounds")

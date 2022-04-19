@@ -23,6 +23,7 @@ function c_kraneUtility.DrawText3D(x,y,z, text, scale, r, g, b)
     end
 end
 
+
 function c_kraneUtility.Force_Model_Load(model)
     if not model then error("[KRANE-Utility.lua] -> Force_Model_Load(model) -> Missing model") end
     local modelhash = ""
@@ -134,6 +135,20 @@ function c_kraneUtility.Outline_Entity(entity)
     -- DrawLine(x1, y1, z1, x2, y2, z2, red, green, blue, alpha)
     x,y,z = table.unpack(GetEntityCoords(entity))
     DrawLine(x-0.1,y-0.1,z, x+0.1,y-0.1,z, 255,0,0,255)
+end
+
+c_kraneUtility.generic_follow_blip = nil
+function c_kraneUtility.Generic_Follow_Blip(x,y,z)
+    c_kraneUtility.generic_follow_blip = AddBlipForCoord(x, y, z)
+    SetBlipSprite(c_kraneUtility.generic_follow_blip,119)
+	SetBlipColour(c_kraneUtility.generic_follow_blip,1)
+	SetBlipAsShortRange(c_kraneUtility.generic_follow_blip,false)
+    SetBlipScale(c_kraneUtility.generic_follow_blip,1.25)
+end
+
+function c_kraneUtility.Destory_Generic_Follow_Blip()
+    RemoveBlip(c_kraneUtility.generic_follow_blip)
+    c_kraneUtility.generic_follow_blip = nil
 end
 
 c_kraneUtility.general_blip = nil

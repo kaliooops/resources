@@ -6,7 +6,7 @@ vRP = Proxy.getInterface("vRP")
 minereuri = {
     "minereu_de_fier", 
     "minereu_de_aur", 
-    "minereu_de_argin"
+    "minereu_de_argint"
 }
 
 
