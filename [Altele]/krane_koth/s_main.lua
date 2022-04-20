@@ -3,7 +3,7 @@ local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
 vRP = Proxy.getInterface("vRP")
 
-local DEFAULT_PREGAME_TIMER = 60000*2
+local DEFAULT_PREGAME_TIMER = 60000*5
 
 pregame = {}
 
@@ -46,6 +46,19 @@ function start_game()
     end)
     
 end
+
+RegisterCommand("force", function()
+    for _, uid in pairs(pregame.already_playing) do
+        src = vRP.getUserSource({uid})
+        TriggerClientEvent("krane_koth:Finish_game", src)                
+        TriggerClientEvent("toasty:Notify", src, {type="info", title="Krane KOTH", message = "Jocul s-a terminat"})
+    end
+
+    start_game()
+    pregame.already_playing = pregame.players
+    pregame.players = {}
+    pregame.timer = DEFAULT_PREGAME_TIMER
+end, false)
 
 CreateThread(function()
     while true do

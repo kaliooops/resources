@@ -9,9 +9,9 @@ Config.Pregame_Lobby_Position = {
 
 
 Config.Spawn_Point = {
-    x = 4980.9819335938,
-    y = -4912.90625,
-    z = 570.06958007812
+    x = 5229.2333984375,
+    y = -5435.2490234375,
+    z = 453.16180419922
 }
 
 Config.Money_For_Participating = 3000

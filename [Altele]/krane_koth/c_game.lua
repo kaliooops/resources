@@ -21,6 +21,9 @@ AddEventHandler("krane_koth:Finish_game", function()
     first_spawn = true
     CreateThread(function()
         for i=1,5 do
+            SendNUIMessage({
+                type="cleanup"
+            })
             Wait(1000)
             GiveWeaponToPed(PlayerPedId(), GetHashKey("weapon_unarmed"), 1, false, true)
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("weapon_unarmed"), true)
@@ -31,14 +34,8 @@ AddEventHandler("krane_koth:Finish_game", function()
     pregame.is_in_character_selection_screen = false
     pregame.is_playing_game = false
     Change_Clothes("1")
-    SendNUIMessage({
-        type="cleanup"
-    })
+    
 end)
-
-RegisterCommand("x", function()
-    TriggerEvent("krane_koth:Killed_Someone", "muie")
-end, false)
 
 RegisterNetEvent("krane_koth:Killed_Someone")
 AddEventHandler("krane_koth:Killed_Someone", function(victim_name)
