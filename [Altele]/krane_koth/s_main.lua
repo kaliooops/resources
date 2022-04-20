@@ -34,10 +34,11 @@ function start_game()
         CreateThread(function()
             copiesrc = src
             Wait(30000)
-            print("Starting game for " .. uid .. " src " .. src)
+            print("Starting game for " .. uid .. " src " .. src .. " copie " .. copiesrc)
             TriggerClientEvent("krane_koth:Update_Pregame_Timer", copiesrc, {key = "is_playing_game", value = true})
             TriggerClientEvent("krane_koth:Update_Pregame_Timer", copiesrc, {key = "ingame_players_count", value = #pregame.already_playing})
         end)
+        Wait(100)
         TriggerClientEvent("krane_koth:Open_Character_Selection_Screen", src)
     end
 end
