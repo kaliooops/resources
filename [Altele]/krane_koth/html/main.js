@@ -48,23 +48,23 @@ let current_kills = 0
 function got_kill(playername) {
     current_kills += 1;
     gold_paint_kills.innerText = current_kills;
-    gold_paint_kills.innerText = current_kills + "/20";
-    silencer_kills.innerText = current_kills + "/10";
+    gold_paint_kills.innerText = current_kills + "/10";
+    silencer_kills.innerText = current_kills + "/5";
     total_kills.innerText = current_kills;
 
-    if (silencer_kills.innerText == "10/10") {
+    if (silencer_kills.innerText == "5/5") {
         // hide the parent
         parentxx = silencer_kills.parentNode.parentNode;
         parentxx.style.display = "none";
     }
 
-    if (gold_paint_kills.innerText == "20/20") {
+    if (gold_paint_kills.innerText == "10/10") {
         // hide the parent
         parentxx = gold_paint_kills.parentNode.parentNode;
         parentxx.style.display = "none";     
     }
 
-    if (current_kills > 20) {
+    if (current_kills > 10) {
         total_kills.parentNode.style.top = "0px";
     }
 
@@ -105,6 +105,8 @@ addEventListener("message", function(event) {
             cards[i].classList.remove("card_chosen_for_spawn");
         }
         current_kills = 0;
+        gold_paint_kills.innerText = current_kills + "/10";
+        silencer_kills.innerText = current_kills + "/5";
         hide_rewards();
            
     }

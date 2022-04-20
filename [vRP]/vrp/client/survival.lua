@@ -105,13 +105,14 @@ Citizen.CreateThread(function() -- coma thread
     local health = GetEntityHealth(ped)
     if health <= cfg.coma_threshold and coma_left > 0 then
       if not in_coma then -- go to coma state
+
+        if IsEntityDead(ped) then -- if dead, resurrect
             local killer_ped, killer_cause = GetPedSourceOfDeath(ped), GetPedCauseOfDeath(ped)
             local ped_name = GetPlayerName(NetworkGetEntityOwner(killer_ped))
             retval, bone = GetPedLastDamageBone(ped)
             TriggerServerEvent("ezDamage:Killed", ped_name, killer_cause, bone)
 
-        if IsEntityDead(ped) then -- if dead, resurrect
-          local x,y,z = tvRP.getPosition()
+            local x,y,z = tvRP.getPosition()
           NetworkResurrectLocalPlayer(x, y, z, true, true, false)
           Citizen.Wait(0)
         end
