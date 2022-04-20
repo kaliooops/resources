@@ -122,6 +122,5 @@ AddEventHandler("ezDamage:Killed", function(attacker_name, cause, bone)
 
     attacker_src = vRP.getUserSource({attacker})
     TriggerClientEvent("krane_koth:Killed_Someone", attacker_src, victim_name)
-    -- TriggerClientEvent("krane_koth:Killed_Someone", src, victim_name)
     print("[Krane Koth] " .. victim_name .. " was killed by " .. attacker_name .. " with " .. cause .. " on " .. bone)
 end)
