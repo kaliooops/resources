@@ -31,16 +31,20 @@ function start_game()
         src = vRP.getUserSource({uid})
 
         TriggerClientEvent("krane_koth:Update_Pregame_Timer", src, {key = "is_in_character_selection_screen", value = true})
-        CreateThread(function()
-            copiesrc = src
-            Wait(30000)
-            print("Starting game for " .. uid .. " src " .. src .. " copie " .. copiesrc)
-            TriggerClientEvent("krane_koth:Update_Pregame_Timer", copiesrc, {key = "is_playing_game", value = true})
-            TriggerClientEvent("krane_koth:Update_Pregame_Timer", copiesrc, {key = "ingame_players_count", value = #pregame.already_playing})
-        end)
-        Wait(100)
         TriggerClientEvent("krane_koth:Open_Character_Selection_Screen", src)
     end
+
+    CreateThread(function()
+        Wait(30000)
+        for _, uid in pairs(pregame.players) do
+            src = vRP.getUserSource({uid})
+            Wait(100)
+            print("Starting game for " .. uid .. " src " .. src)
+            TriggerClientEvent("krane_koth:Update_Pregame_Timer", src, {key = "is_playing_game", value = true})
+            TriggerClientEvent("krane_koth:Update_Pregame_Timer", src, {key = "ingame_players_count", value = #pregame.already_playing})
+        end
+    end)
+    
 end
 
 CreateThread(function()
