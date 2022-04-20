@@ -91,7 +91,7 @@ AddEventHandler("krane_koth:Update_Pregame_Timer", function(data)
     end
 
     if data.key == "is_in_character_selection_screen" then
-        pregame.is_in_character_selection_screen = data.value
+        pregame.is_in_haracter_selection_screen = data.value
     end
 
     if data.key == "is_playing_game" then

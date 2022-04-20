@@ -40,7 +40,7 @@ function show_ui() {
 
 hide_ui();
 
-let gold_paint_kills = document.getElementById("kills_for_gold_paint");
+let gold_paint_kills = document.getElementById("kills_for_old_paint");
 let silencer_kills = document.getElementById("kills_for_suppressor");
 let total_kills = document.getElementById("total_kills");
 let current_kills = 0
@@ -55,7 +55,7 @@ function got_kill(playername) {
     if (silencer_kills.innerText == "5/5") {
         // hide the parent
         parentxx = silencer_kills.parentNode.parentNode;
-        parentxx.style.display = "none";
+        parentxx.style.display  "none";
     }
 
     if (gold_paint_kills.innerText == "10/10") {

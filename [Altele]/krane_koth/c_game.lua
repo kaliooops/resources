@@ -21,9 +21,6 @@ AddEventHandler("krane_koth:Finish_game", function()
     first_spawn = true
     CreateThread(function()
         for i=1,5 do
-            SendNUIMessage({
-                type="cleanup"
-            })
             Wait(1000)
             GiveWeaponToPed(PlayerPedId(), GetHashKey("weapon_unarmed"), 1, false, true)
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("weapon_unarmed"), true)
