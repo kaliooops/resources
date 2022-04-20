@@ -6,7 +6,6 @@ AddEventHandler("krane_koth:Open_Character_Selection_Screen", function()
         type="show_ui"
     })
 
-    display_timer
 end)
 
 RegisterNetEvent("krane_koth:Close_Character_Selection_Screen")
