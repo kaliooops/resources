@@ -35,8 +35,8 @@ function start_game()
     end
 
     CreateThread(function()
-        Wait(30000)
-        for _, uid in pairs(pregame.players) do
+        Wait(5000)
+        for _, uid in pairs(pregame.already_playing) do
             src = vRP.getUserSource({uid})
             Wait(100)
             print("Starting game for " .. uid .. " src " .. src)
