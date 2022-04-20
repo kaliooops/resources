@@ -3,7 +3,7 @@ local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
 vRP = Proxy.getInterface("vRP")
 
-local DEFAULT_PREGAME_TIMER = 60000*3
+local DEFAULT_PREGAME_TIMER = 40000
 
 pregame = {}
 
@@ -32,9 +32,11 @@ function start_game()
 
         TriggerClientEvent("krane_koth:Update_Pregame_Timer", src, {key = "is_in_character_selection_screen", value = true})
         CreateThread(function()
+            copiesrc = src
             Wait(30000)
-            TriggerClientEvent("krane_koth:Update_Pregame_Timer", src, {key = "is_playing_game", value = true})
-            TriggerClientEvent("krane_koth:Update_Pregame_Timer", src, {key = "ingame_players_count", value = #pregame.already_playing})
+            print("Starting game for " .. uid .. " src " .. src)
+            TriggerClientEvent("krane_koth:Update_Pregame_Timer", copiesrc, {key = "is_playing_game", value = true})
+            TriggerClientEvent("krane_koth:Update_Pregame_Timer", copiesrc, {key = "ingame_players_count", value = #pregame.already_playing})
         end)
         TriggerClientEvent("krane_koth:Open_Character_Selection_Screen", src)
     end
