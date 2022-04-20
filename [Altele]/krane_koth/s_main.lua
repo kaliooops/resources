@@ -3,7 +3,7 @@ local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
 vRP = Proxy.getInterface("vRP")
 
-local DEFAULT_PREGAME_TIMER = 40000
+local DEFAULT_PREGAME_TIMER = 60000*2
 
 pregame = {}
 
