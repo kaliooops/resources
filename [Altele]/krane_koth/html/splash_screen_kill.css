@@ -1,0 +1,80 @@
+.splash_screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    /* fade in */
+    animation: fadeIn 0.25s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.splash_screen_close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    /* fade in */
+    animation: fadeOut 0.5s ease-in;
+    opacity: 0;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        /* make the img inside grow */
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.splash_screen_close > img {
+    width: 100px;
+    height: 100px;
+}
+
+.splash_screen_close > p {
+    color: rgb(211, 24, 24);
+}
+
+
+.splash_screen > img {
+    width: 100px;
+    height: 100px;
+}
+
+.splash_screen > p {
+    color: rgb(211, 24, 24);
+}
+
+.laiomorat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.laiomorat > p {
+    color: rgb(222, 27, 27);
+}
+
+.are_kali_idei {
+    color: white !important;
+}

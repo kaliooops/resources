@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bottom.css">
+    <link rel="stylesheet" href="splash_screen_kill.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="container">
+
+        <div id="scout" class="card">
+            <div class="back_grid">
+                <img src="img/Crosshair.png" alt="">
+                <p> SMG </p>
+                <img src="img/Health.png" alt="">
+                <p> 100 </p>
+                <img src="img/Armor.png" alt="">
+                <p> 0 </p>
+            </div>
+
+            <img class="class_icon" src="img/Scout.png">
+            <p>Scout</p>
+        </div>
+
+        <div id="gunner" class="card">
+            <div class="back_grid">
+                <img src="img/Crosshair.png" alt="">
+                <p> Db. Action </p>
+                <img src="img/Health.png" alt="">
+                <p> 100 </p>
+                <img src="img/Armor.png" alt="">
+                <p> 50 </p>
+            </div>
+
+            <img class="class_icon" src="img/Gunner.png">
+            <p>Gunner</p>
+        </div>
+
+        <div id="assault" class="card">
+            <div class="back_grid">
+                <img src="img/Crosshair.png" alt="">
+                <p> AK-47 </p>
+                <img src="img/Health.png" alt="">
+                <p> 100 </p>
+                <img src="img/Armor.png" alt="">
+                <p> 30 </p>
+            </div>
+
+            <img class="class_icon" src="img/Assault.png">
+            <p>Assault</p>
+        </div>
+        
+        <div id="heavy" class="card">
+            <div class="back_grid">
+                <img src="img/Crosshair.png" alt="">
+                <p> Minigun </p>
+                <img src="img/Health.png" alt="">
+                <p> 100 </p>
+                <img src="img/Armor.png" alt="">
+                <p> 100 </p>
+            </div>
+            <img class="class_icon" src="img/heavy.png">
+            <p>Heavy</p>
+        </div>
+
+        <div id="sniper" class="card">
+            <div class="back_grid">
+                <img src="img/Crosshair.png" alt="">
+                <p> H. Sniper </p>
+                <img src="img/Health.png" alt="">
+                <p> 100 </p>
+                <img src="img/Armor.png" alt="">
+                <p> 0 </p>
+            </div>
+
+            <img class="class_icon" src="img/sniper.png">
+            <p>Sniper</p>
+        </div>
+    </div>
+
+    <div id="bottom_rewards" class="bottom_rewards">
+        <div class="total_kills">
+            <img src="img/skull.png" alt="">
+            <p id="total_kills">0</p>
+        </div>
+
+        <div class="reward_panel">
+            <div class="kill_required">
+                <img src="img/skull.png" alt="">
+                <p id="kills_for_suppressor">0/10</p>
+            </div>
+            <div id="silencer" class="reward_box">
+                <img src="img/suppressor.webp" alt="">
+            </div>
+        </div>
+
+        <div class="reward_panel">
+            <div class="kill_required">
+                <img src="img/skull.png" alt="">
+                <p id="kills_for_gold_paint">0/20</p>
+            </div>
+            <div id="gold_paint" class="reward_box">
+                <img src="img/gold_paint.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="splash_screen" class="splash_screen">
+        <img src="img/kill_icon.png" alt="">
+        <div class="laiomorat">
+            <p>L-ai omorat pe</p>
+            <p class="are_kali_idei" id="killed_player"></p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

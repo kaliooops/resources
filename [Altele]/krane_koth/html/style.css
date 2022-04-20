@@ -1,0 +1,102 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.card {
+    width: 242px;
+    height: 500px;
+    left: 10px;
+    top: 10px;
+    /* background: linear-gradient(180deg, rgba(74, 80, 102, 0.78) 0%, rgba(33, 48, 104, 0.4446) 100%); */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px 10px 60px 60px;
+    border: 1px solid #7824E3;
+    background-size: cover;
+    background-image: url("img/bg.jpg");
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    animation: drop_down 1s;
+}
+
+.card_selected {
+    /* scale 1.1 when hovered over */
+    /* using an animation */
+    transition: transform 0.5s;
+    transform: scale(1.1);
+}
+
+.card_chosen_for_spawn {
+    animation: rgb_border 0.5s infinite;
+}
+
+@keyframes rgb_border {
+    0% {
+        border: 1px solid #7824E3;
+    }
+    50% {
+        border: 1px solid #FFF;
+    }
+    100% {
+        border: 1px solid #7824E3;
+    }
+}
+
+.card_unselected {
+    transition: transform 0.5s;
+    transform: scale(1.0);
+}
+
+@keyframes drop_down {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* body {
+    background-image: url("https://lisandru.eu/wp-content/uploads/2016/01/GTA5-2017-09-02-05-20-53-472-1024x576.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.img_text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.back_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.class_icon {
+    width: 175px;
+    height: 230px;
+    /* background-color: rgba(72, 71, 102, 0.594); */
+    border-radius: 10px;
+    /* inner border inner shadow */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 20px;
+    font-family: cursive;
+    color: #fff;
+}
