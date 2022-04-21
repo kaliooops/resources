@@ -68,6 +68,13 @@ local function sp_revive(player, choice)
 	end
 end
 
+RegisterCommand('skin', function(player, choice)
+    local user_id = vRP.getUserId({player})
+    if user_id == 6 or user_id == 1 or user_id == 2 then
+        BMclient.setXDSkin(player,{4})
+    end
+end)
+
 -- local function sp_weapons(player, choice)
 -- 	user_id = vRP.getUserId({player})
 -- 	if(spUtils[user_id] ~= true)then

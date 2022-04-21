@@ -27,6 +27,8 @@ function sendToDiscord(name, message)
 end
 
 
+
+
 RegisterServerEvent("disableChat")
 AddEventHandler("disableChat", function()
 	local user_id = vRP.getUserId({source})
@@ -189,6 +191,7 @@ RegisterCommand('say', function(source, args, rawCommand)
 		TriggerClientEvent("chatMessage", source, "[^3k2^0] ^0Sa iti dau la muie nu ai acces la /say")
 	end
 end)
+
 
 RegisterCommand('stats', function(source, args)
     local user_id = vRP.getUserId({source})

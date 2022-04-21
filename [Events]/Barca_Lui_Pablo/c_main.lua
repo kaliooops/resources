@@ -16,10 +16,6 @@ function start_event()
     xSound:PlayUrl(shipsound, soundlink, 1.0, false, {})
 end
 
-RegisterCommand("barcapablo", function()
-    start_event()
-end, false)
-
 local started = false
 CreateThread(function()
     while true do

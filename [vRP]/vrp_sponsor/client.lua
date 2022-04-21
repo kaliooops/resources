@@ -43,7 +43,7 @@ function vRPCsponsor.setXDSkin(skinID)
 			Citizen.Wait(0)
 		end
 	elseif(skinID == 4)then
-		model = "sithyoda"
+		model = "ig_groom"
 		RequestModel(model)
 		while not HasModelLoaded(model) do
 			Citizen.Wait(0)
