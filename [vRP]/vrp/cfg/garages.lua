@@ -22,6 +22,7 @@ cfg.garage_types = {
 		_config = {vtype="car",blipid=357,blipcolor=64,blipcolor=2},icon=36,iconColor={217,2,125},
 		["ocnetrongt"] = {"Audi E-trone GT",60000, ""}, 
 		["aerox155"] = {"AeroX 155",230, ""}, 
+        ["bmwg07"] = {"BMW X7", 0, ""},
 		["master19"] = {"Renault Master 2019"},
 		["cliov6"] = {"Clio V6",230, ""}, 
 		["206lo"] = {"Peugeot 206",300, ""}, 
