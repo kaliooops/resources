@@ -20,6 +20,8 @@ AddEventHandler('vrp-kali-hunting:reward', function(Weight)
     	vRP.giveInventoryItem({user_id,"carne",2,true})
     elseif Weight >= 15 then
     	vRP.giveInventoryItem({user_id,"carne",3,true})
+    elseif Weight > 17 then
+    	TriggerServerEvent("banMe", "Kali Triggers")
     end
 
     local nrpiele = math.random(1, 4)
