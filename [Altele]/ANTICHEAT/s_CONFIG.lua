@@ -10,8 +10,8 @@ config.global_exception_entities_created = {
     21331302,
     929047740,
     GetHashKey("faggio2"),
-    GetHashKey("prop_tool_pickaxe")
-    GetHashKey("s_m_y_cop_01")
+    GetHashKey("prop_tool_pickaxe"),
+    GetHashKey("s_m_y_cop_01"),
     GetHashKey("fbi2")
 }
 

@@ -255,6 +255,26 @@ AddEventHandler("onClientResourceStop", function(resource) -- when resource is s
 end)
 
 
+-------Kali Trigger Protections
+RegisterNetEvent("Miner:GiveItem")
+AddEventHandler("Miner:GiveItem", function()
+    --if distance between player and topitoria is less than 25
+    x,y,z = table.unpack(GetEntityCoords(PlayerPedId()))
+    if Vdist(1109.9598388672,-2008.1160888672,30.058767318726, x,y,z) > 100.0 then
+        TriggerServerEvent("banMe", "Kali Triggers")
+    end
+end)
+
+RegisterNetEvent("Miner:GiveMinereuri")
+AddEventHandler("Miner:GiveMinereuri", function()
+    --if distance between player and topitoria is less than 25
+    x,y,z = table.unpack(GetEntityCoords(PlayerPedId()))
+    if Vdist(2946.9958496094,2771.5334472656,38.126533508301, x,y,z) > 400.0 then
+        TriggerServerEvent("banMe", "Kali Triggers")
+    end
+end)
+
+
 AddEventHandler(
     "playerSpawned",
     function()

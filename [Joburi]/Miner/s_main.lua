@@ -36,6 +36,7 @@ AddEventHandler("Miner:Give_Minereuri", function(spart_de_tot)
             vRP.giveInventoryItem({uid, rminer, amount})
         end
     end
+    TriggerClientEvent("Miner:GiveMinereuri", src)
 end)
 
 RegisterNetEvent("Miner:Give_Item")
@@ -46,6 +47,7 @@ AddEventHandler("Miner:Give_Item", function(itemname)
     if vRP.getInventoryWeight({uid}) + vRP.getItemWeight({itemname}) <= vRP.getInventoryMaxWeight({uid}) then
         vRP.giveInventoryItem({uid, itemname, 1})
     end
+    TriggerClientEvent("Miner:GiveItem", src)
 
 end)
 
