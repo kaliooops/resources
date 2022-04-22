@@ -1,39 +1,39 @@
-kraneUtility = module(Classes_Config.resource_name, "classes/c_kraneUtility")
-kranePed = module(Classes_Config.resource_name, "classes/c_kranePED")
-kraneVeh = module(Classes_Config.resource_name, "classes/c_kraneVehicle")
-kraneObject = module(Classes_Config.resource_name, "classes/c_kraneObject")
+-- kraneUtility = module(Classes_Config.resource_name, "classes/c_kraneUtility")
+-- kranePed = module(Classes_Config.resource_name, "classes/c_kranePED")
+-- kraneVeh = module(Classes_Config.resource_name, "classes/c_kraneVehicle")
+-- kraneObject = module(Classes_Config.resource_name, "classes/c_kraneObject")
 
--- set a marker at random coords from config.search_locations
-function spawn_junk()
-    junk = kraneObject.new()
-    random_spawn = config.search_locations[math.random(1, #config.search_locations)]
-    random_junk = config.junks[math.random(1, #config.junks)]
-    junk:Create_Me(random_spawn.x, random_spawn.y, random_spawn.z-1, 100, random_junk, false)
-    junk:Freeze()
-    SetEntityDrawOutline(junk.obj, true)
-    SetEntityDrawOutlineColor(junk.obj, 205, 102, 0, 255)
-    print("locatie", random_spawn)
+-- -- set a marker at random coords from config.search_locations
+-- function spawn_junk()
+--     junk = kraneObject.new()
+--     random_spawn = config.search_locations[math.random(1, #config.search_locations)]
+--     random_junk = config.junks[math.random(1, #config.junks)]
+--     junk:Create_Me(random_spawn.x, random_spawn.y, random_spawn.z-1, 100, random_junk, false)
+--     junk:Freeze()
+--     SetEntityDrawOutline(junk.obj, true)
+--     SetEntityDrawOutlineColor(junk.obj, 205, 102, 0, 255)
+--     print("locatie", random_spawn)
 
-    junk:Listen_Interactions(function()
-        if IsControlJustPressed(1, 51) then
-            myped = kranePed.new()
-            myped.ped = PlayerPedId()
-            myped:Play_Animation("mini@repair", "fixing_a_ped")
-            kraneUtility.Draw_Progress_Bar(10, "Cauti Piese", false, true)
-            Wait(7000) 
-            print("done") 
-            chance = math.random(1, 100)
-                if chance < 30 then
-                    TriggerServerEvent("ScrapMechanic:Parts", true)
-                else
-                    print("~r~Nimic bun aici...!")
-                end
-            junk:Destroy()
-            spawn_junk()
-        end
-    end)
-end
+--     junk:Listen_Interactions(function()
+--         if IsControlJustPressed(1, 51) then
+--             myped = kranePed.new()
+--             myped.ped = PlayerPedId()
+--             myped:Play_Animation("mini@repair", "fixing_a_ped")
+--             kraneUtility.Draw_Progress_Bar(10, "Cauti Piese", false, true)
+--             Wait(7000) 
+--             print("done") 
+--             chance = math.random(1, 100)
+--                 if chance < 30 then
+--                     TriggerServerEvent("ScrapMechanic:Parts", true)
+--                 else
+--                     print("~r~Nimic bun aici...!")
+--                 end
+--             junk:Destroy()
+--             spawn_junk()
+--         end
+--     end)
+-- end
 
-RegisterCommand("spawn_junk", function()
-    spawn_junk()
-end)
+-- RegisterCommand("spawn_junk", function()
+--     spawn_junk()
+-- end)
